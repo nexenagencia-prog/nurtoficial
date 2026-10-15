@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#38105f">
+<title>Nurt — verão em boa companhia</title>
+<meta name="description" content="Açaí, sorvete, milkshake, sucos naturais e salada de frutas. Escolha seu copo e aproveite o verão com a Nurt.">
+<meta property="og:title" content="Nurt — verão em boa companhia">
+<meta property="og:description" content="Seu próximo copo favorito está aqui.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--plum:#38105f;--deep:#230b3c;--purple:#6813a4;--berry:#ed2eaa;--sun:#ffe34f;--lime:#d8f45c;--cream:#fff9ed;--ink:#2b173c;--muted:#776b81;--line:#eadff0;--display:"Outfit",Arial,sans-serif;--body:"DM Sans",Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);overflow-x:hidden}body.drawer-open{overflow:hidden}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}img{display:block;max-width:100%}
+.topbar{height:35px;background:var(--sun);display:flex;align-items:center;justify-content:center;color:var(--plum);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:0 15px}
+header{position:absolute;z-index:10;left:0;right:0;top:35px;height:82px;padding:0 clamp(22px,6vw,88px);display:flex;align-items:center;justify-content:space-between;color:white;border-bottom:1px solid #ffffff35}
+.brand{position:relative;font:900 36px/.9 var(--display);letter-spacing:-.1em;color:var(--sun);transform:rotate(-4deg);text-shadow:2px 2px 0 var(--berry);display:inline-block;padding:8px 7px 8px 0}
+.brand:after{content:"";position:absolute;width:5px;height:5px;right:-12px;top:7px;background:var(--lime);box-shadow:7px 0 var(--berry),0 7px var(--sun)}
+nav{display:flex;align-items:center;gap:34px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
+nav a:not(.nav-cta){opacity:.88}nav a:hover{opacity:1}
+.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:99px;padding:14px 21px;background:var(--sun);color:var(--plum);font-size:11px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;box-shadow:4px 4px 0 var(--berry);transition:transform .2s,box-shadow .2s}
+.nav-cta:hover,.button:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--berry)}
+.menu-toggle{display:none}
+.hero{min-height:min(850px,calc(100svh - 35px));position:relative;isolation:isolate;display:flex;align-items:center;color:white;background:var(--plum);overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:url("assets/nurt-hero.png") center 42%/cover no-repeat;transform:scale(1.02)}
+.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#220b3cf2 0%,#2e0b4fd9 31%,#35105380 54%,#3010480a 82%),linear-gradient(0deg,#20083c88 0%,transparent 38%)}
+.hero-inner{width:min(1280px,100%);margin:auto;padding:130px clamp(24px,8vw,120px) 90px}
+.eyebrow{display:flex;align-items:center;gap:11px;color:var(--lime);font-size:10px;font-weight:900;letter-spacing:.22em;text-transform:uppercase}
+.eyebrow:before{content:"";width:27px;height:3px;background:var(--berry);box-shadow:5px 3px 0 var(--sun)}
+.hero h1{max-width:710px;margin:23px 0 17px;font:900 clamp(58px,8vw,108px)/.89 var(--display);letter-spacing:-.07em;text-transform:uppercase}
+.hero h1 span{color:var(--sun);display:block;text-shadow:4px 4px 0 var(--berry)}
+.hero-copy{max-width:410px;color:#f3eaf9;font-size:16px;line-height:1.7;margin:0 0 28px}
+.hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap}.hero-actions .button{padding:16px 23px}
+.text-link{font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;border-bottom:1px solid #ffffff9c;padding:8px 0}
+.hero-note{position:absolute;right:7%;bottom:11%;width:106px;height:106px;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--lime);color:var(--plum);font:800 10px/1.2 var(--display);transform:rotate(10deg);box-shadow:6px 6px 0 var(--berry)}
+.hero-note strong{display:block;font-size:21px}
+.sparkle{position:absolute;color:var(--sun);font-size:37px;right:30%;top:24%;text-shadow:2px 2px 0 var(--berry);transform:rotate(15deg)}
+.ticker{overflow:hidden;white-space:nowrap;background:var(--purple);color:white;border-block:5px solid var(--sun)}
+.ticker-track{display:flex;width:max-content;animation:marquee 32s linear infinite;font:800 18px var(--display);letter-spacing:.05em;text-transform:uppercase}
+.ticker span{padding:14px 19px}.ticker i{font-style:normal;color:var(--sun);padding-left:25px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.section{padding:100px clamp(22px,7vw,100px)}
+.section-head{max-width:1250px;margin:0 auto 38px;display:flex;align-items:end;justify-content:space-between;gap:25px}
+.kicker{font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--purple)}
+.section-title{margin:10px 0 0;font:900 clamp(40px,6vw,72px)/.92 var(--display);letter-spacing:-.065em;text-transform:uppercase}
+.section-title em{font-style:normal;color:var(--berry)}
+.section-intro{max-width:390px;margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+.shop{background:var(--cream)}
+.shop-top{max-width:1250px;margin:0 auto 26px;display:flex;align-items:center;justify-content:space-between}
+.shop-top span{color:var(--muted);font-size:12px}
+.cart-button{border:1px solid var(--plum);background:var(--plum);color:white;border-radius:999px;padding:11px 16px;font-size:11px;font-weight:800;letter-spacing:.06em}
+.cart-button b{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:50%;background:var(--sun);color:var(--plum);margin-left:7px}
+.shop-grid{max-width:1250px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
+.item-card{border:1px solid var(--line);border-radius:15px;background:white;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.item-card:hover{transform:translateY(-5px);box-shadow:0 13px 35px #39105f16}
+.item-photo{height:280px;position:relative;overflow:hidden;background-color:#f9e9fa;background-image:url("assets/nurt-products.png");background-repeat:no-repeat;background-size:600% auto}
+.item-photo:after{content:"";position:absolute;inset:auto 0 0;height:55%;background:linear-gradient(0deg,#250b3c31,transparent)}
+.item-tag{position:absolute;z-index:1;left:14px;top:14px;padding:7px 10px;border-radius:50px;background:var(--sun);color:var(--plum);font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.1em}
+.item-copy{padding:17px 18px 19px}
+.item-row{display:flex;align-items:start;justify-content:space-between;gap:10px}
+.item-name{margin:0;font:800 21px/1.05 var(--display);letter-spacing:-.035em}
+.item-type{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-top:7px}
+.item-description{font-size:12px;line-height:1.5;color:var(--muted);margin:10px 0 16px;min-height:36px}
+.add-button{width:100%;border:1px solid var(--plum);border-radius:50px;background:white;color:var(--plum);padding:11px 14px;display:flex;align-items:center;justify-content:space-between;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,color .2s}
+.add-button:hover{background:var(--plum);color:white}
+.add-button b{font-size:18px;line-height:.7}
+.shop-foot{max-width:1250px;margin:25px auto 0;color:var(--muted);font-size:11px}
+.art-strip{height:500px;position:relative;overflow:hidden;isolation:isolate;background:var(--plum);color:white}
+.art-strip:before{content:"";position:absolute;inset:0;z-index:-2;background:url("assets/nurt-friends.png") center 48%/cover no-repeat}
+.art-strip:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#270a45e8 0%,#2d0b4b80 45%,transparent 85%),linear-gradient(0deg,#23083a40,transparent)}
+.art-copy{max-width:1250px;height:100%;margin:auto;padding:80px clamp(24px,8vw,110px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.art-copy .eyebrow{color:var(--sun)}
+.art-copy h2{max-width:520px;font:900 clamp(45px,7vw,80px)/.93 var(--display);letter-spacing:-.065em;text-transform:uppercase;margin:17px 0}
+.art-copy h2 span{color:var(--sun)}
+.art-copy p{max-width:365px;color:#f2eafa;line-height:1.65;font-size:14px}
+.pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.pill{border:1px solid #ffffff91;border-radius:99px;padding:9px 12px;color:white;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.flavor{background:#f1e4fa}
+.flavor-grid{max-width:1250px;margin:auto;display:grid;grid-template-columns:.92fr 1.08fr;gap:35px;align-items:center}
+.flavor-photo{min-height:520px;border-radius:9px;overflow:hidden;position:relative;background:url("assets/nurt-hero.png") 74% center/cover no-repeat;box-shadow:12px 12px 0 var(--sun)}
+.flavor-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#24083b62,transparent 58%)}
+.flavor-caption{position:absolute;z-index:1;bottom:18px;left:20px;color:white;font:800 10px var(--display);letter-spacing:.12em;text-transform:uppercase}
+.flavor-copy .kicker{color:var(--berry)}
+.flavor-copy h2{font:900 clamp(42px,6vw,68px)/.94 var(--display);letter-spacing:-.065em;text-transform:uppercase;margin:12px 0 18px}
+.flavor-copy h2 span{color:var(--purple);display:block}
+.flavor-copy>p{max-width:480px;color:#675871;font-size:14px;line-height:1.8}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:28px 0}
+.step{border-top:2px solid var(--berry);padding-top:11px}.step:nth-child(2){border-color:var(--purple)}.step:nth-child(3){border-color:#a9c43a}
+.step strong{display:block;font:800 13px var(--display);text-transform:uppercase}
+.step span{display:block;color:var(--muted);font-size:10px;line-height:1.45;margin-top:5px}
+.flavor-copy .button{background:var(--plum);color:white;box-shadow:4px 4px 0 var(--berry)}
+.community{padding:88px clamp(20px,7vw,100px);background:var(--sun);overflow:hidden}
+.community-head{max-width:1250px;margin:0 auto 28px;display:flex;justify-content:space-between;align-items:end;gap:20px}
+.community .kicker{color:var(--plum)}
+.community h2{font:900 clamp(37px,5.7vw,68px)/.94 var(--display);letter-spacing:-.06em;text-transform:uppercase;margin:10px 0 0;color:var(--plum)}
+.community h2 span{color:var(--berry)}
+.community-intro{max-width:330px;color:#614b60;font-size:13px;line-height:1.7;margin:0}
+.moments{max-width:1250px;margin:auto;display:grid;grid-template-columns:1.35fr .8fr .8fr;gap:13px}
+.moment{min-height:330px;position:relative;overflow:hidden;border-radius:8px;background:var(--purple);isolation:isolate}
+.moment:before{content:"";position:absolute;inset:0;z-index:-2;background-image:url("assets/nurt-friends.png");background-repeat:no-repeat;background-size:300% 100%;transition:transform .5s}
+.moment:hover:before{transform:scale(1.06)}
+.moment:nth-child(1):before{background-position:0 center}.moment:nth-child(2):before{background-position:50% center}.moment:nth-child(3):before{background-position:100% center}
+.moment:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(0deg,#22083cbd,transparent)}
+.moment-label{position:absolute;z-index:1;left:17px;bottom:16px;color:white;font:800 12px var(--display);letter-spacing:.1em;text-transform:uppercase}
+.last-call{background:var(--plum);color:white;padding:70px clamp(22px,7vw,100px)}
+.last-call-inner{max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:26px}
+.last-call h2{font:900 clamp(36px,5vw,59px)/.96 var(--display);letter-spacing:-.06em;text-transform:uppercase;margin:0}
+.last-call h2 span{color:var(--sun)}
+.last-call p{color:#e3d7ed;font-size:13px;line-height:1.6;margin:9px 0 0}
+.last-call .button{white-space:nowrap}
+footer{background:var(--deep);color:white;padding:47px clamp(22px,7vw,100px) 20px}
+.footer-top,.footer-bottom{max-width:1250px;margin:auto;display:flex;align-items:start;justify-content:space-between;gap:25px}
+.footer-brand p{max-width:290px;color:#c4b4d3;font-size:12px;line-height:1.65}
+.footer-links{display:flex;gap:22px;flex-wrap:wrap;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.footer-bottom{border-top:1px solid #ffffff30;margin-top:30px;padding-top:15px;color:#b6a6c6;font-size:10px}
+.drawer-backdrop{position:fixed;z-index:40;inset:0;background:#18072799;opacity:0;pointer-events:none;transition:opacity .25s}
+.drawer{position:fixed;z-index:41;top:0;right:0;bottom:0;width:min(430px,100%);background:var(--cream);padding:25px;transform:translateX(102%);transition:transform .3s;display:flex;flex-direction:column}
+.drawer-open .drawer-backdrop{opacity:1;pointer-events:auto}.drawer-open .drawer{transform:none}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:17px}
+.drawer-head h2{font:800 24px var(--display);margin:0}
+.drawer-close{border:0;background:transparent;font-size:27px;color:var(--plum)}
+.cart-list{list-style:none;padding:12px 0;margin:0;overflow:auto;flex:1}
+.cart-list li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}
+.cart-list button{border:0;background:none;color:var(--berry);font-size:11px;font-weight:800}
+.cart-empty{color:var(--muted);font-size:13px;padding:15px 0}
+.cart-note{background:#f1e4fa;border-radius:12px;padding:12px;font-size:11px;line-height:1.55;color:#5e4c6b;margin-bottom:12px}
+.drawer .button{width:100%;background:var(--plum);color:white;box-shadow:4px 4px 0 var(--berry)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s,transform .65s}.reveal.is-visible{opacity:1;transform:none}
+@media(max-width:950px){.shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.item-photo{height:260px}.flavor-grid{gap:25px}.flavor-photo{min-height:450px}.moments{grid-template-columns:1fr 1fr}.moment:first-child{grid-column:span 2;min-height:360px}.moment{min-height:270px}}
+@media(max-width:680px){
+.topbar{font-size:8px;letter-spacing:.12em;height:32px}header{top:32px;height:68px;padding:0 19px}.brand{font-size:32px}
+nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--plum);padding:20px;flex-direction:column;align-items:stretch;gap:18px}nav.open{display:flex}.nav-cta{text-align:center}.menu-toggle{display:grid;place-items:center;width:42px;height:42px;border:1px solid #ffffff80;color:white;border-radius:50%;background:#ffffff12;font-size:19px}
+.hero{min-height:760px;align-items:end}.hero:before{background-position:57% 20%}.hero:after{background:linear-gradient(0deg,#22083cf7 2%,#22083cd9 39%,#22083c17 100%)}.hero-inner{padding:360px 24px 55px}.hero h1{font-size:clamp(56px,15vw,84px);margin:18px 0}.hero-copy{font-size:14px;max-width:340px}.hero-note{top:115px;right:24px;bottom:auto;width:78px;height:78px;font-size:8px}.hero-note strong{font-size:16px}.sparkle{top:23%;right:66%;font-size:27px}
+.section{padding:68px 19px}.section-head{display:block;margin-bottom:27px}.section-intro{margin-top:14px}.section-title{font-size:clamp(39px,11vw,58px)}
+.shop-top{margin-bottom:18px}.shop-top span{font-size:10px}.cart-button{font-size:9px;padding:9px 12px}.shop-grid{gap:11px}.item-photo{height:185px}.item-copy{padding:13px}.item-name{font-size:17px}.item-type{font-size:8px}.item-description{font-size:10px;min-height:45px;margin:8px 0 12px}.add-button{padding:10px;font-size:8px}
+.art-strip{height:600px}.art-strip:before{background-position:61% center}.art-strip:after{background:linear-gradient(0deg,#23083cf2 0%,#23083c9c 43%,#23083c0a 100%)}.art-copy{padding:35px 24px 45px;justify-content:end}.art-copy h2{font-size:clamp(48px,13vw,70px)}.art-copy p{font-size:12px}
+.flavor{padding:65px 20px}.flavor-grid{grid-template-columns:1fr;gap:30px}.flavor-photo{min-height:420px;order:2}.flavor-copy h2{font-size:clamp(42px,12vw,62px)}.steps{gap:8px}.step strong{font-size:11px}.step span{font-size:9px}
+.community{padding:65px 19px}.community-head{display:block}.community-intro{margin-top:14px}.moments{grid-template-columns:1fr 1fr;gap:9px}.moment:first-child{grid-column:span 2;min-height:280px}.moment{min-height:225px}.moment-label{font-size:9px;left:11px;bottom:11px}
+.last-call-inner{display:block}.last-call .button{margin-top:21px}.last-call h2{font-size:clamp(38px,11vw,52px)}
+.footer-top{display:block}.footer-links{margin-top:23px;gap:15px}.footer-bottom{display:block;line-height:1.8}.footer-bottom span{display:block}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="topbar">fruta de verdade · feito pra compartilhar · verão no seu ritmo</div>
+<header>
+<a class="brand" href="#inicio" aria-label="Nurt, início">NURT</a>
+<button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+<nav aria-label="Navegação principal">
+<a href="#sabores">Sabores</a><a href="#vibe">Nossa vibe</a><a href="#momento">Seu momento</a>
+<a class="nav-cta" href="#loja">Escolher meu copo ↗</a>
+</nav>
+</header>
+<main>
+<section class="hero" id="inicio">
+<div class="hero-inner">
+<div class="eyebrow">O verão fica melhor junto</div>
+<h1>O verão pede<span>um Nurt.</span></h1>
+<p class="hero-copy">Açaí geladinho, frutas de verdade e aquele sabor que transforma qualquer pausa em programa.</p>
+<div class="hero-actions"><a class="button" href="#loja">Escolher meu copo <span>↗</span></a><a class="text-link" href="#sabores">Conheça os sabores ↓</a></div>
+</div>
+<div class="hero-note">um gole<br><strong>DE VERÃO</strong><br>e pronto</div><div class="sparkle" aria-hidden="true">✳</div>
+</section>
+<div class="ticker" aria-label="Cardápio Nurt"><div class="ticker-track"><span>Açaí <i>✳</i> Sorvete <i>✳</i> Milkshake <i>✳</i> Suco natural <i>✳</i> Salada de fruta <i>✳</i> Açaí <i>✳</i> Sorvete <i>✳</i> Milkshake <i>✳</i> Suco natural <i>✳</i> Salada de fruta <i>✳</i></span><span aria-hidden="true">Açaí <i>✳</i> Sorvete <i>✳</i> Milkshake <i>✳</i> Suco natural <i>✳</i> Salada de fruta <i>✳</i> Açaí <i>✳</i> Sorvete <i>✳</i> Milkshake <i>✳</i> Suco natural <i>✳</i> Salada de fruta <i>✳</i></span></div></div>
+<section class="section shop" id="loja">
+<div class="section-head reveal"><div><div class="kicker">Bateu vontade? Escolhe aqui</div><h2 class="section-title">Seu próximo<br><em>favorito.</em></h2></div><p class="section-intro">Um copo transparente, ingredientes fresquinhos e combinações para curtir do primeiro gole à última colherada.</p></div>
+<div class="shop-top"><span>Escolha seus favoritos para montar o pedido</span><button class="cart-button" type="button" data-open-cart aria-label="Abrir meu pedido">Meu pedido <b id="cart-count">0</b></button></div>
+<div class="shop-grid" id="sabores">
+<article class="item-card reveal"><div class="item-photo" style="background-position:0% 50%"><span class="item-tag">o clássico da casa</span></div><div class="item-copy"><div class="item-row"><h3 class="item-name">Açaí Nurt</h3></div><div class="item-type">Açaí · gelado · cremoso</div><p class="item-description">Roxo intenso, textura cremosa e espaço para a sua combinação favorita.</p><button class="add-button" type="button" data-add="Açaí Nurt">Adicionar ao pedido <b>＋</b></button></div></article>
+<article class="item-card reveal"><div class="item-photo" style="background-position:20% 50%"><span class="item-tag">fruta + açaí</span></div><div class="item-copy"><div class="item-row"><h3 class="item-name">Açaí com frutas</h3></div><div class="item-type">Açaí · fruta fresquinha</div><p class="item-description">Açaí cremoso com cor, textura e fruta fresca em cada colher.</p><button class="add-button" type="button" data-add="Açaí com frutas">Adicionar ao pedido <b>＋</b></button></div></article>
+<article class="item-card reveal"><div class="item-photo" style="background-position:40% 50%"><span class="item-tag">colorido de verdade</span></div><div class="item-copy"><div class="item-row"><h3 class="item-name">Salada de frutas</h3></div><div class="item-type">Frutas · refrescante</div><p class="item-description">Pedaços de fruta fresquinhos, preparados para uma pausa leve.</p><button class="add-button" type="button" data-add="Salada de frutas">Adicionar ao pedido <b>＋</b></button></div></article>
+<article class="item-card reveal"><div class="item-photo" style="background-position:60% 50%"><span class="item-tag">fruta no copo</span></div><div class="item-copy"><div class="item-row"><h3 class="item-name">Suco natural</h3></div><div class="item-type">Suco · gelado · fruta</div><p class="item-description">Um gole bem gelado para acompanhar os dias de sol.</p><button class="add-button" type="button" data-add="Suco natural">Adicionar ao pedido <b>＋</b></button></div></article>
+<article class="item-card reveal"><div class="item-photo" style="background-position:80% 50%"><span class="item-tag">momento sobremesa</span></div><div class="item-copy"><div class="item-row"><h3 class="item-name">Milkshake</h3></div><div class="item-type">Milkshake · batido na hora</div><p class="item-description">Cremoso, gelado e feito para tomar sem pressa.</p><button class="add-button" type="button" data-add="Milkshake">Adicionar ao pedido <b>＋</b></button></div></article>
+<article class="item-card reveal"><div class="item-photo" style="background-position:100% 50%"><span class="item-tag">uma colherada de alegria</span></div><div class="item-copy"><div class="item-row"><h3 class="item-name">Sorvete</h3></div><div class="item-type">Sorvete · cremoso</div><p class="item-description">Seu sabor favorito para deixar o passeio ainda melhor.</p><button class="add-button" type="button" data-add="Sorvete">Adicionar ao pedido <b>＋</b></button></div></article>
+</div>
+<p class="shop-foot">Confira sabores, tamanhos, disponibilidade e valores ao finalizar seu pedido.</p>
+</section>
+<section class="art-strip" id="vibe"><div class="art-copy reveal"><div class="eyebrow">Sol no rosto, copo na mão</div><h2>O melhor do dia<span>é dividir.</span></h2><p>Depois da praia, no caminho de casa ou no meio do rolê. Puxa uma cadeira, chama a galera e aproveita aquele sabor de verão.</p><div class="pill-row"><span class="pill">feito para curtir</span><span class="pill">fruta de verdade</span><span class="pill">sempre geladinho</span></div></div></section>
+<section class="section flavor" id="momento"><div class="flavor-grid"><div class="flavor-photo reveal" role="img" aria-label="Amigos aproveitam açaí, milkshake e suco em um dia ensolarado"><span class="flavor-caption">Nurt · seu verão no seu ritmo</span></div><div class="flavor-copy reveal"><div class="kicker">Sem ocasião especial. Só vontade.</div><h2>Escolhe. Combina.<span>Se joga.</span></h2><p>Vai de açaí com fruta, suco bem gelado, sorvete ou um milkshake daqueles. Cada copo Nurt é um convite para curtir o agora, do seu jeito.</p><div class="steps"><div class="step"><strong>Escolhe</strong><span>Seu copo e seu sabor.</span></div><div class="step"><strong>Combina</strong><span>Faz do seu jeito.</span></div><div class="step"><strong>Aproveita</strong><span>O resto é verão.</span></div></div><a class="button" href="#loja">Montar meu pedido ↗</a></div></div></section>
+<section class="community"><div class="community-head"><div><div class="kicker">A vida acontece no caminho</div><h2>Mais sol.<br><span>Mais Nurt.</span></h2></div><p class="community-intro">Um brinde às conversas longas, aos passeios sem hora e aos dias que pedem alguma coisa gelada.</p></div><div class="moments"><div class="moment"><span class="moment-label">Praia, amigos e um copo bem gelado</span></div><div class="moment"><span class="moment-label">A pausa favorita</span></div><div class="moment"><span class="moment-label">Um verão inteiro de sabores</span></div></div></section>
+<section class="last-call"><div class="last-call-inner"><div><h2>Deu vontade?<br><span>Vem de Nurt.</span></h2><p>Monte seu pedido e confira o cardápio atualizado com a gente.</p></div><button class="button" type="button" data-open-cart>Montar meu pedido ↗</button></div></section>
+</main>
+<footer><div class="footer-top"><div class="footer-brand"><a class="brand" href="#inicio">NURT</a><p>Açaí, fruta, sorvete e verão no copo. Feito pra dividir bons momentos.</p></div><div class="footer-links"><a href="#sabores">Cardápio</a><a href="#vibe">Nossa vibe</a><a href="#momento">Seu momento</a><a href="https://www.instagram.com/cafenaportacidreira/" target="_blank" rel="noopener">Instagram ↗</a></div></div><div class="footer-bottom"><span>© Nurt</span><span>Seu verão em boa companhia.</span></div></footer>
+<div class="drawer-backdrop" data-close-cart></div><aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title"><div class="drawer-head"><h2 id="cart-title">Meu pedido</h2><button class="drawer-close" type="button" data-close-cart aria-label="Fechar pedido">×</button></div><ul class="cart-list" id="cart-list"><li class="cart-empty">Seu pedido ainda está vazio. Escolha um favorito para começar.</li></ul><div class="cart-note">Confira os tamanhos, sabores disponíveis e valores ao falar com a equipe.</div><a class="button" href="https://www.instagram.com/cafenaportacidreira/" target="_blank" rel="noopener">Continuar pelo Instagram ↗</a></aside>
+<script>
+(function(){
+var cart=[];var count=document.getElementById("cart-count");var list=document.getElementById("cart-list");
+function render(){count.textContent=cart.length;list.innerHTML="";if(!cart.length){var empty=document.createElement("li");empty.className="cart-empty";empty.textContent="Seu pedido ainda está vazio. Escolha um favorito para começar.";list.appendChild(empty);return}cart.forEach(function(name,index){var li=document.createElement("li");var span=document.createElement("span");span.textContent=name;var remove=document.createElement("button");remove.type="button";remove.textContent="Remover";remove.addEventListener("click",function(){cart.splice(index,1);render()});li.append(span,remove);list.appendChild(li)})}
+function openCart(){document.body.classList.add("drawer-open")}
+function closeCart(){document.body.classList.remove("drawer-open")}
+document.querySelectorAll("[data-add]").forEach(function(button){button.addEventListener("click",function(){cart.push(button.getAttribute("data-add"));render();openCart()})});
+document.querySelectorAll("[data-open-cart]").forEach(function(button){button.addEventListener("click",openCart)});
+document.querySelectorAll("[data-close-cart]").forEach(function(button){button.addEventListener("click",closeCart)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeCart()});
+var toggle=document.querySelector(".menu-toggle"),nav=document.querySelector("nav");
+toggle.addEventListener("click",function(){var open=nav.classList.toggle("open");toggle.setAttribute("aria-expanded",open?"true":"false");toggle.textContent=open?"×":"☰"});
+nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open");toggle.setAttribute("aria-expanded","false");toggle.textContent="☰"})});
+if("IntersectionObserver" in window){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target)}})},{threshold:.12});document.querySelectorAll(".reveal").forEach(function(el){observer.observe(el)})}else{document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("is-visible")})}
+})();
+</script>
+</body>
+</html>
