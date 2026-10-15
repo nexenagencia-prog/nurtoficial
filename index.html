@@ -21,7 +21,7 @@ nav a{transition:color .2s}nav a:hover{color:var(--yellow)}
 .cart-open b{display:inline-grid;place-items:center;width:22px;height:22px;margin-left:6px;background:var(--purple);color:white;border-radius:50%;font-size:12px}
 .menu-toggle{display:none;border:0;background:none;color:white;font-size:28px}
 .hero{min-height:min(900px,100svh);position:relative;isolation:isolate;display:flex;align-items:center;color:white;overflow:hidden;background:#39116e}
-.hero:before{content:"";position:absolute;z-index:-2;inset:0;background:url('assets/hero-acai.webp') center/cover no-repeat;animation:heroIn 1.2s ease-out both}
+.hero:before{content:"";position:absolute;z-index:-2;inset:0;background:url('assets/hero-nurt-electric.webp') center/cover no-repeat;animation:heroIn 1.2s ease-out both}
 .hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#260a4ced 0%,#34105ec9 31%,#3d126e61 52%,transparent 75%),linear-gradient(0deg,#250b4380,transparent 36%)}
 @keyframes heroIn{from{transform:scale(1.06)}to{transform:scale(1)}}
 .hero-inner{width:min(1400px,100%);margin:auto;padding:150px clamp(24px,8vw,120px) 105px}
@@ -228,6 +228,21 @@ footer strong{display:none}
  footer .brand img{width:100px}
 }
 
+
+/* Hero baseado no anexo: azul elétrico, produto em destaque e chamada dinâmica */
+.hero:before{background-image:url('assets/hero-nurt-electric.webp');background-position:center;background-size:cover;animation:heroIn 1.2s ease-out both,heroDrift 16s ease-in-out 1.2s infinite alternate}
+@keyframes heroDrift{from{transform:scale(1)}to{transform:scale(1.035)}}
+.hero:after{background:linear-gradient(90deg,#061e42a6 0%,#082b574d 44%,#082b5718 68%,transparent 100%),linear-gradient(0deg,#061e4260,transparent 36%)}
+.hero h1{max-width:760px;font-size:clamp(62px,8.6vw,120px);line-height:.96;font-weight:600;letter-spacing:-.055em}
+.hero-word{min-width:4ch;transform-origin:left center}
+.hero-word.flavor-in{animation:flavorIn .55s cubic-bezier(.2,.7,.2,1) both}
+@keyframes flavorIn{from{opacity:0;transform:translateY(.24em);filter:blur(7px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@media(max-width:760px){
+ .hero:before{background-position:70% center}
+ .hero:after{background:linear-gradient(90deg,#061e42d9 0%,#082b57a8 52%,#082b573d 100%),linear-gradient(0deg,#061e42bd 0%,transparent 58%)}
+ .hero h1{font-size:clamp(56px,13vw,84px);line-height:.98}
+}
+@media(prefers-reduced-motion:reduce){.hero:before{animation:none}.hero-word.flavor-in{animation:none}}
 /* Product shots: real photos of each transparent cup */
 .product-art{height:220px!important;min-height:220px;aspect-ratio:auto!important;display:block!important;flex:0 0 220px;background:#f5f1e9!important;background-image:none!important;overflow:hidden}
 .product-art img{display:block!important;width:100%;height:100%;object-fit:contain;object-position:center}
@@ -251,8 +266,8 @@ footer strong{display:none}
 <section class="hero" id="topo">
 <div class="hero-inner">
 <div class="kicker">A temporada pede Nurt</div>
-<h1>O verão<br>que cabe <span>num copo.</span></h1>
-<p class="hero-copy">Açaí, sorvete, milkshake e fruta geladinha. Escolhe o teu favorito e deixa o dia mais gostoso.</p>
+<h1>Verão pede<br><span class="hero-word flavor-in" id="hero-word" aria-live="polite">açaí</span></h1>
+<p class="hero-copy">Açaí, sorvete, milkshake e suco bem geladinhos. Escolhe o teu favorito e deixa o dia mais gostoso.</p>
 <div class="hero-actions"><a class="button" href="#sabores">Escolher meu sabor</a><a class="text-link" href="#a-cara-do-verao">Sente o clima</a></div>
 </div>
 <div class="hero-seal"><div><strong>100%</strong>vontade<br>de verão</div></div>
@@ -320,6 +335,11 @@ document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()
 document.querySelectorAll('[data-cart]').forEach(b=>b.addEventListener('click',drawerOpen));
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',drawerClose));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')drawerClose()});
+const heroWord=document.getElementById('hero-word');
+if(heroWord&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+ const flavors=['açaí','sorvete','milkshake','suco'];let flavorIndex=0;
+ window.setInterval(()=>{heroWord.classList.remove('flavor-in');void heroWord.offsetWidth;flavorIndex=(flavorIndex+1)%flavors.length;heroWord.textContent=flavors[flavorIndex];heroWord.classList.add('flavor-in')},2600);
+}
 const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('nav');
 menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'×':'☰'});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
