@@ -9,310 +9,64 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--purple:#401070;--violet:#6925a3;--pink:#ed2b9e;--yellow:#ffe53d;--sky:#59c9ef;--green:#c8ed46;--cream:#fff8eb;--ink:#281039;--display:'Anton',Impact,sans-serif;--body:'Barlow Condensed',Arial,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:78px}body{margin:0;color:var(--ink);font-family:var(--body);overflow-x:hidden}button,a{font:inherit}a{color:inherit;text-decoration:none}button{cursor:pointer}
-.top-note{height:32px;background:var(--yellow);display:flex;justify-content:center;align-items:center;color:var(--purple);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-header{position:absolute;z-index:20;top:32px;left:0;right:0;height:82px;padding:0 clamp(20px,6vw,92px);display:flex;align-items:center;justify-content:space-between;color:white;border-bottom:1px solid #ffffff40}
-.brand{font:normal clamp(30px,3.2vw,44px)/.85 var(--display);letter-spacing:.035em;color:var(--yellow);text-shadow:3px 3px 0 var(--pink);transform:rotate(-3deg)}
-nav{display:flex;gap:clamp(16px,3vw,40px);align-items:center;font-size:16px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
-nav a{transition:color .2s}nav a:hover{color:var(--yellow)}
-.cart-open,.button{border:0;border-radius:999px;padding:13px 22px;background:var(--yellow);color:var(--purple);font-weight:800;font-size:15px;letter-spacing:.07em;text-transform:uppercase;box-shadow:4px 4px 0 var(--pink);transition:transform .18s,box-shadow .18s}
-.cart-open:hover,.button:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--pink)}
-.cart-open b{display:inline-grid;place-items:center;width:22px;height:22px;margin-left:6px;background:var(--purple);color:white;border-radius:50%;font-size:12px}
-.menu-toggle{display:none;border:0;background:none;color:white;font-size:28px}
-.hero{min-height:min(900px,100svh);position:relative;isolation:isolate;display:flex;align-items:center;color:white;overflow:hidden;background:#39116e}
-.hero:before{content:"";position:absolute;z-index:-2;inset:0;background:url('assets/hero-nurt-electric.webp') center/cover no-repeat;animation:heroIn 1.2s ease-out both}
-.hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#260a4ced 0%,#34105ec9 31%,#3d126e61 52%,transparent 75%),linear-gradient(0deg,#250b4380,transparent 36%)}
-@keyframes heroIn{from{transform:scale(1.06)}to{transform:scale(1)}}
-.hero-inner{width:min(1400px,100%);margin:auto;padding:150px clamp(24px,8vw,120px) 105px}
-.kicker{font-size:15px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);display:flex;align-items:center;gap:12px}
-.kicker:before{content:"";width:30px;height:4px;background:var(--pink);box-shadow:5px 4px 0 var(--yellow)}
-.hero h1{max-width:640px;margin:22px 0 18px;font:normal clamp(68px,10vw,140px)/.82 var(--display);letter-spacing:.005em;text-transform:uppercase;color:white;text-shadow:4px 4px 0 #611c91}
-.hero h1 span{display:block;color:var(--yellow);text-shadow:5px 5px 0 var(--pink)}
-.hero-copy{max-width:380px;margin:0 0 28px;font-size:21px;line-height:1.35;font-weight:500;color:#fff9}
-.hero-actions{display:flex;gap:23px;align-items:center;flex-wrap:wrap}.text-link{color:white;border-bottom:1px solid #ffffff9c;padding:8px 0;font-weight:800;font-size:15px;letter-spacing:.12em;text-transform:uppercase}
-.hero-seal{position:absolute;right:5.7%;bottom:8%;width:130px;height:130px;background:var(--yellow);color:var(--purple);border-radius:50%;display:grid;place-items:center;text-align:center;font-weight:800;font-size:15px;line-height:1.05;text-transform:uppercase;transform:rotate(9deg);box-shadow:7px 7px 0 var(--pink)}
-.hero-seal strong{font:normal 35px/.9 var(--display);display:block}
-.ticker{overflow:hidden;background:var(--pink);color:white;border-block:5px solid var(--yellow);white-space:nowrap}
-.ticker-track{display:flex;width:max-content;animation:move 32s linear infinite;font:normal 28px var(--display);letter-spacing:.025em;text-transform:uppercase}
-.ticker span{padding:12px 18px}.ticker i{font-style:normal;color:var(--yellow);padding-left:25px}@keyframes move{to{transform:translateX(-50%)}}
-.full-scene{min-height:690px;min-height:78svh;position:relative;isolation:isolate;overflow:hidden;color:white;background:var(--purple);display:flex;align-items:center}
-.full-scene img{position:absolute;z-index:-2;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 43%}
-.full-scene:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#270a46e8 0%,#31105ab5 32%,#37126338 66%,transparent 100%),linear-gradient(0deg,#21063f58,transparent 40%)}
-.scene-copy{width:min(1360px,100%);margin:auto;padding:90px clamp(24px,8vw,120px)}
-.scene-copy.right{display:flex;justify-content:flex-end}
-.scene-copy>div{max-width:540px}
-.scene-copy .kicker{color:var(--yellow)}
-.scene-copy h2{font:normal clamp(54px,8vw,104px)/.87 var(--display);text-transform:uppercase;letter-spacing:.005em;margin:18px 0;color:white}
-.scene-copy h2 em{font-style:normal;color:var(--yellow);display:block;text-shadow:4px 4px 0 var(--pink)}
-.scene-copy p{font-size:20px;line-height:1.35;max-width:390px;color:#fff}
-.scene-copy.right p{margin-left:auto}
-.scene-copy.right .kicker{justify-content:flex-end}
-.scene-copy.right h2{text-align:right}
-.scene-copy.right .button{display:flex;margin-left:auto}
-.catalog{background:var(--yellow);padding:84px clamp(20px,7vw,100px) 90px;position:relative;overflow:hidden}
-.catalog:before{content:"NURT";position:absolute;right:-2vw;top:-80px;color:#ed2b9e12;font:normal 340px/.9 var(--display);transform:rotate(-7deg);pointer-events:none}
-.catalog-head{max-width:1280px;margin:0 auto 32px;display:flex;justify-content:space-between;align-items:end;gap:24px;position:relative}
-.catalog h2{font:normal clamp(52px,7vw,88px)/.88 var(--display);text-transform:uppercase;margin:10px 0 0;color:var(--purple)}
-.catalog-head p{max-width:340px;font-size:19px;line-height:1.3;margin:0;color:#542777}
-.catalog-grid{max-width:1280px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--purple);border:2px solid var(--purple);position:relative}
-.product{background:var(--cream);padding:24px 24px 21px;min-height:220px;display:flex;flex-direction:column;transition:background .2s,transform .2s}
-.product:hover{background:#fff1c1;transform:translateY(-3px)}
-.product-top{display:flex;justify-content:space-between;align-items:center}
-.product-index{font:normal 17px var(--display);color:var(--pink)}
-.product-dot{width:12px;height:12px;border-radius:50%;background:var(--pink);box-shadow:5px 0 var(--purple),10px 0 var(--sky)}
-.product h3{font:normal 34px/1 var(--display);text-transform:uppercase;margin:30px 0 5px;color:var(--purple)}
-.product p{font-size:18px;line-height:1.2;margin:0;color:#694e79}
-.product-bottom{margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;align-items:center}
-.product-price{font-size:15px;letter-spacing:.07em;text-transform:uppercase;font-weight:800;color:var(--pink)}
-.add{border:2px solid var(--purple);border-radius:30px;background:transparent;color:var(--purple);padding:9px 14px;font-size:13px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;transition:background .2s,color .2s}
-.add:hover{background:var(--purple);color:white}
-.catalog-foot{max-width:1280px;margin:16px auto 0;font-size:14px;color:#614078}
-.order-banner{background:var(--purple);color:white;padding:75px 24px;text-align:center;position:relative;overflow:hidden}
-.order-banner:before,.order-banner:after{content:"✳";position:absolute;font-size:150px;color:var(--pink);opacity:.45;top:15px}
-.order-banner:before{left:4%;transform:rotate(-15deg)}.order-banner:after{right:4%;color:var(--yellow);transform:rotate(20deg)}
-.order-banner h2{font:normal clamp(47px,7vw,84px)/.9 var(--display);text-transform:uppercase;margin:0 0 18px}
-.order-banner h2 span{color:var(--yellow)}
-.order-banner p{font-size:20px;margin:0 auto 26px;color:#fff9;max-width:490px}
-.order-banner .button{background:var(--yellow)}
-footer{background:#21083c;color:#f5ebff;padding:28px clamp(20px,7vw,100px);display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:15px}
-footer strong{font:normal 28px var(--display);color:var(--yellow)}footer small{opacity:.7;font-size:13px}
-.cart-shade{position:fixed;z-index:100;inset:0;background:#1803299c;opacity:0;pointer-events:none;transition:opacity .25s}
-.cart-drawer{position:fixed;z-index:101;right:0;top:0;bottom:0;width:min(440px,100%);background:var(--cream);padding:26px;transform:translateX(105%);transition:transform .28s;display:flex;flex-direction:column}
-body.cart-visible .cart-shade{opacity:1;pointer-events:auto}body.cart-visible .cart-drawer{transform:translateX(0)}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--purple);padding-bottom:14px}
-.drawer-head h2{font:normal 38px var(--display);text-transform:uppercase;color:var(--purple);margin:0}
-.drawer-close{border:0;background:none;font-size:28px;color:var(--purple)}
-.cart-items{flex:1;overflow:auto;padding:10px 0}
-.cart-row{display:flex;justify-content:space-between;gap:15px;padding:15px 0;border-bottom:1px solid #e3d6eb}
-.cart-row strong{font-size:20px;text-transform:uppercase;color:var(--purple)}
-.cart-row span{display:block;color:#775e86;font-size:16px}
-.qty{display:flex;align-items:center;gap:9px}.qty button{border:1px solid var(--purple);border-radius:50%;width:29px;height:29px;background:none;color:var(--purple);font-weight:800}
-.cart-help{color:#715f7d;font-size:15px;line-height:1.3}.checkout{width:100%;margin-top:9px}
-@media(max-width:760px){
- .top-note{font-size:10px;letter-spacing:.08em;height:29px}
- header{top:29px;height:68px;padding:0 19px}
- .brand{font-size:32px}
- .menu-toggle{display:block}
- nav{display:none;position:absolute;top:68px;left:0;right:0;background:#300d55f5;padding:20px 24px 24px;flex-direction:column;align-items:stretch;gap:19px;font-size:17px}
- nav.open{display:flex}nav .cart-open{align-self:flex-start}
- .hero{min-height:calc(95svh - 29px)}
- .hero:before{background-position:60% center}
- .hero:after{background:linear-gradient(90deg,#270a4ecb 0%,#34105e88 48%,#32105a24 100%),linear-gradient(0deg,#23083d9c 0%,transparent 46%)}
- .hero-inner{padding:128px 24px 80px}
- .hero h1{font-size:clamp(64px,16vw,100px);max-width:450px}
- .hero-copy{max-width:290px;font-size:19px}
- .hero-seal{width:91px;height:91px;right:6%;bottom:6%;font-size:11px}
- .hero-seal strong{font-size:25px}
- .full-scene{min-height:670px;min-height:86svh}
- .full-scene img{object-position:58% center}
- .full-scene:after{background:linear-gradient(90deg,#270a46d1 0%,#31105a78 60%,#37126316 100%),linear-gradient(0deg,#21063f8a,transparent 50%)}
- .scene-copy{padding:70px 24px}
- .scene-copy h2{font-size:clamp(54px,14vw,82px)}
- .scene-copy p{font-size:18px;max-width:290px}
- .scene-copy.right{justify-content:flex-start}
- .scene-copy.right .kicker{justify-content:flex-start}
- .scene-copy.right h2{text-align:left}
- .scene-copy.right .button{margin-left:0}
- .catalog{padding:65px 17px 70px}
- .catalog:before{font-size:180px;top:-20px}
- .catalog-head{display:block;margin-bottom:24px}
- .catalog-head p{margin-top:13px;font-size:18px}
- .catalog h2{font-size:58px}
- .catalog-grid{grid-template-columns:1fr}
- .product{min-height:174px;padding:18px}
- .product h3{margin-top:18px;font-size:31px}
- .product-bottom{padding-top:14px}
- .order-banner{padding:67px 24px}
- .order-banner:before,.order-banner:after{font-size:80px;top:4px}
- footer{flex-direction:column;text-align:center;padding:25px 18px}
+:root{--navy:#082b57;--deep:#041a37;--orange:#ff762b;--paper:#f8f7f3;--ink:#122d4c;--body:'Manrope',Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}body{margin:0;background:var(--deep);color:var(--ink);font:400 16px/1.6 var(--body)}body.cart-visible{overflow:hidden}button,input,a{-webkit-tap-highlight-color:transparent}button,input{font:inherit}button,a{touch-action:manipulation}button{cursor:pointer}a{color:inherit;text-decoration:none}button{border:0}img{max-width:100%;display:block}[hidden]{display:none!important}:focus-visible{outline:3px solid #ff9a55;outline-offset:5px}
+.top-note{position:absolute;z-index:21;top:0;left:0;width:100%;padding:9px 15px;text-align:center;color:#d5e3f5;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+header{position:absolute;z-index:20;top:45px;left:4%;width:92%;height:82px;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:#061f4266;border:1px solid #ffffff24;border-radius:20px;backdrop-filter:blur(20px);color:white}
+.brand{display:block;transform:none}.brand img{width:113px;height:53px;object-fit:contain}
+nav{display:flex;align-items:center;gap:32px;font-size:13px;font-weight:500}nav>a{opacity:.85}nav>a:hover{opacity:1;color:#ff9a5e}
+.cart-open,.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:99px;background:var(--orange);color:var(--deep);font-size:13px;font-weight:600;line-height:1.3;transition:background .2s,transform .2s}
+.button:hover,.cart-open:hover{background:#ff9656;transform:translateY(-2px)}.cart-open b,.catalog-cart b{display:inline-grid;place-items:center;min-width:23px;height:23px;padding:0 6px;background:var(--deep);color:white;border-radius:99px;font-size:11px}
+.menu-toggle{display:none;color:white;background:transparent;font-size:26px}
+.hero{position:relative;isolation:isolate;min-height:820px;height:100svh;max-height:1100px;display:flex;align-items:center;overflow:hidden;background:var(--deep);color:white}
+.hero:before{content:"";position:absolute;z-index:-2;inset:0;background:url('assets/hero-nurt-electric.webp') center/cover no-repeat;animation:heroDrift 16s ease-in-out infinite alternate}
+.hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#041a37c9, #041a3770 42%,transparent 75%),linear-gradient(0deg,#041a3780,transparent 30%)}
+@keyframes heroDrift{to{transform:scale(1.035)}}
+.hero-inner{width:min(1440px,100%);margin:auto;padding:160px 7% 90px}.kicker{display:flex;align-items:center;gap:10px;text-transform:uppercase;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--orange)}.kicker:before{content:"";width:24px;height:2px;background:currentColor}
+.hero h1{font-weight:500;font-size:clamp(68px,7.8vw,116px);line-height:1.03;letter-spacing:-.065em;margin:24px 0;max-width:720px}.hero h1 span{display:block;color:#ff8d43;white-space:nowrap}
+.hero-copy{max-width:380px;color:#d0ddee;font-size:16px;line-height:1.8;margin:0 0 30px}.hero-actions{display:flex;gap:25px;align-items:center;flex-wrap:wrap}.text-link{font-size:12px;padding:10px 0;border-bottom:1px solid #ffffff70}.hero-seal{position:absolute;bottom:40px;right:6%;font-size:11px;color:#fff9;letter-spacing:.12em;text-transform:uppercase}.hero-seal strong{font-size:14px;font-weight:500;color:white;margin-right:8px}.hero-seal br{display:none}
+.flavor-in{animation:flavorIn .5s ease-out both}@keyframes flavorIn{from{opacity:0;transform:translateY(12px);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+.ticker{overflow:hidden;background:var(--orange);color:var(--deep);padding:15px 0}.ticker-track{display:flex;white-space:nowrap;width:max-content;animation:marquee 40s linear infinite;font-size:12px;font-weight:500;letter-spacing:.02em}.ticker span{padding:0 26px}.ticker i{font-style:normal;margin-left:48px;opacity:.5}@keyframes marquee{to{transform:translateX(-50%)}}
+.catalog{padding:95px 6%;background:linear-gradient(135deg,#082b57,#041a37);color:white}
+.catalog-head,.catalog-filters,.catalog-grid,.catalog-foot,.catalog-empty{max-width:1320px;margin-left:auto;margin-right:auto}
+.catalog-head{display:flex;justify-content:space-between;align-items:end;gap:35px;margin-bottom:30px}.catalog h2{font-size:clamp(40px,4.8vw,65px);line-height:1.1;font-weight:500;letter-spacing:-.055em;margin:12px 0 0}.catalog h2 span{color:#ff8b44}
+.catalog-tools{display:flex;gap:12px;align-items:center}.catalog-search{display:flex;gap:10px;align-items:center;border:1px solid #ffffff30;background:#ffffff08;border-radius:99px;padding:12px 18px;width:245px}.catalog-search:focus-within{border-color:var(--orange)}.catalog-search svg{width:18px;height:18px;flex-shrink:0}.catalog-search input{min-width:0;width:100%;background:none;border:0;color:white;outline:none;font-size:12px}.catalog-search input::placeholder{color:#a7bbd2}.catalog-cart{white-space:nowrap;background:white;color:var(--deep);border-radius:99px;padding:12px 17px;font-size:12px}.catalog-cart b{margin-left:7px}
+.catalog-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px}.catalog-filter{font-size:12px;padding:11px 19px;border:1px solid #ffffff28;background:transparent;border-radius:99px;color:#dae5f5;transition:background .2s}.catalog-filter:hover{background:#ffffff12}.catalog-filter[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:var(--deep)}
+.catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.product{min-width:0;background:var(--paper);color:var(--ink);border-radius:22px;padding:12px 12px 20px;display:flex;flex-direction:column;position:relative;transition:transform .25s,box-shadow .25s}.product:hover{transform:translateY(-5px);box-shadow:0 18px 40px #0003}.product-top{display:none}
+.product-art{height:255px;background:#f5f1e9;overflow:hidden;border-radius:14px;margin:0 0 20px}.product-art img{width:100%;height:100%;object-fit:contain;transition:transform .5s}.product:hover .product-art img{transform:scale(1.045)}
+.product h3{font-size:20px;font-weight:600;letter-spacing:-.035em;line-height:1.3;margin:0 12px 8px}.product p{font-size:12px;line-height:1.65;color:#68798a;margin:0 12px 20px;max-width:300px}
+.product-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:auto 12px 0}.product-price{font-size:10px;color:#6a798a}.add{padding:12px 17px;background:var(--navy);color:white;border-radius:99px;font-size:12px;font-weight:500;transition:background .2s}.add:hover{background:var(--orange);color:var(--deep)}.add:active{transform:scale(.96)}
+.catalog-foot{color:#90a6c1;font-size:11px;line-height:1.7;margin-top:23px}.catalog-empty{border:1px dashed #ffffff40;border-radius:18px;padding:35px;text-align:center;color:#c1d0e2}
+.full-scene{position:relative;isolation:isolate;min-height:720px;display:flex;align-items:center;overflow:hidden;color:white;background:var(--deep)}
+.full-scene>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
+.full-scene:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#041a37e6, #041a3780 38%,transparent 70%)}
+#a-cara-do-verao:after{background:linear-gradient(270deg,#041a37e6,#041a3790 36%,transparent 67%)}
+.scene-copy{width:min(1440px,100%);margin:auto;padding:90px 7%;display:flex;justify-content:flex-end}.scene-copy.right{justify-content:flex-start}.scene-copy>div{width:41%;max-width:490px}
+.scene-copy h2{font-size:clamp(45px,5.4vw,76px);font-weight:400;line-height:1.1;letter-spacing:-.055em;margin:22px 0}.scene-copy h2 em{display:block;font-style:normal;color:#ff994f}.scene-copy p{max-width:330px;color:#d9e5f0;font-size:14px;line-height:1.8;margin:0 0 27px}
+.order-banner{background:var(--paper);color:var(--navy);padding:95px 25px;text-align:center}.order-banner h2{font-size:clamp(38px,5vw,66px);font-weight:500;line-height:1.15;letter-spacing:-.05em;margin:20px 0}.order-banner h2 span{color:#e96b26}.order-banner p{max-width:440px;margin:0 auto 28px;color:#68798a;font-size:14px}
+footer{background:var(--deep);color:#a7b7cb;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:35px 6%;font-size:11px}footer .brand img{width:100px}
+.cart-shade{position:fixed;inset:0;background:#00142b99;backdrop-filter:blur(6px);z-index:100;opacity:0;visibility:hidden;transition:opacity .25s}
+.cart-drawer{position:fixed;z-index:101;right:0;top:0;height:100dvh;width:min(460px,100%);background:var(--paper);padding:28px;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .3s,visibility .3s}
+.cart-visible .cart-shade{opacity:1;visibility:visible}.cart-visible .cart-drawer{transform:none;visibility:visible}.drawer-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:22px;border-bottom:1px solid #dbe0e5}.drawer-head h2{font-size:26px;font-weight:500;letter-spacing:-.04em;margin:0}.drawer-close{background:none;font-size:28px;color:var(--navy);width:44px;height:44px}.cart-items{flex:1;overflow:auto;padding:16px 0}.cart-row{display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid #dbe0e5;padding:20px 0}.cart-row strong{font-size:14px;font-weight:600}.cart-row span{display:block;font-size:11px;color:#718093;margin-top:5px}.qty{display:flex;align-items:center;gap:12px}.qty button{width:36px;height:36px;border:1px solid #cbd5df;background:white;border-radius:50%;color:var(--navy)}.qty b{font-size:12px}.cart-help{font-size:12px;color:#718093}.checkout{width:100%}.checkout[aria-disabled="true"]{opacity:.45;pointer-events:none}
+@media(min-width:1500px){.hero-inner{padding-left:70px}.full-scene{min-height:820px}}
+@media(max-width:1000px){header{padding:12px 20px}nav{gap:18px}.hero{min-height:720px}.hero h1{font-size:80px}.hero-inner{padding-left:5%}.catalog{padding:70px 4%}.catalog-head{align-items:start}.catalog-tools{flex-direction:column;align-items:stretch}.catalog-grid{gap:15px}.product-art{height:210px}.product-bottom{align-items:start;flex-direction:column}.add{width:100%}.full-scene{min-height:640px}.scene-copy>div{width:43%}}
+@media(max-width:700px){
+ .top-note{font-size:8px;padding:9px 8px}
+ header{top:35px;left:4%;width:92%;height:68px;border-radius:15px;padding:10px 17px}.brand img{width:92px;height:44px}.menu-toggle{display:block}
+ nav{display:none;position:absolute;top:76px;left:0;right:0;background:#061e42f5;border:1px solid #ffffff25;border-radius:16px;padding:24px;flex-direction:column;align-items:stretch;gap:23px}nav.open{display:flex}
+ .hero{height:auto;min-height:860px;align-items:start}.hero:before{background-size:auto 610px;background-position:70% bottom;background-repeat:no-repeat;animation:none}.hero:after{background:linear-gradient(180deg,#041a37 0%,#041a37f5 27%,#041a3766 57%,transparent 80%)}
+ .hero-inner{padding:150px 7% 440px;margin:0}.hero .kicker{font-size:9px}.hero h1{font-size:clamp(48px,12vw,76px);line-height:1.05;margin:18px 0}.hero-copy{font-size:13px;max-width:320px;line-height:1.7;margin-bottom:23px}.hero-actions{gap:20px}.button{padding:14px 20px;font-size:12px}.text-link{font-size:11px}.hero-seal{display:none}
+ .ticker{padding:12px 0}.ticker-track{font-size:10px}
+ .catalog{padding:55px 5%}.catalog-head{display:block;margin-bottom:23px}.catalog h2{font-size:43px}.catalog-tools{flex-direction:row;gap:8px;margin-top:24px}.catalog-search{width:auto;flex:1;min-width:0;padding:12px}.catalog-cart{padding:10px 13px;font-size:11px}.catalog-filters{flex-wrap:nowrap;overflow:auto;scrollbar-width:none;padding-bottom:8px;margin-bottom:18px}.catalog-filter{flex-shrink:0;padding:10px 15px;font-size:11px}
+ .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.product{padding:8px 8px 14px;border-radius:15px}.product-art{height:185px;border-radius:10px;margin-bottom:14px}.product h3{font-size:15px;margin:0 5px 7px}.product p{font-size:11px;margin:0 5px 14px;line-height:1.5}.product-bottom{margin:0 5px;margin-top:auto}.product-price{font-size:9px}.add{font-size:11px;padding:11px 9px}.catalog-foot{font-size:10px}
+ .full-scene{display:block;min-height:0;padding-top:360px}.full-scene>img{height:360px;object-position:25% center} .full-scene:not(#a-cara-do-verao)>img{object-position:75% center}
+ .full-scene:after,#a-cara-do-verao:after{background:linear-gradient(180deg,transparent 220px,#041a37 360px)}
+ .scene-copy,.scene-copy.right{padding:20px 7% 55px;display:block}.scene-copy>div{width:100%;max-width:480px}.scene-copy h2{font-size:44px;margin:17px 0;max-width:360px}.scene-copy p{font-size:13px;max-width:100%}
+ .order-banner{padding:65px 7%}.order-banner h2{font-size:39px}.order-banner p{font-size:13px}footer{padding:30px 7%;flex-wrap:wrap}footer span{display:none}.cart-drawer{padding:22px}
 }
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-/* Azul marinho, laranja e fotos de produto em copos transparentes */
-:root{--purple:#082b57;--violet:#1052a0;--pink:#f26722;--yellow:#f26722;--sky:#80c5f1;--green:#f26722;--cream:#fffdf8;--ink:#102844;--display:'Manrope',Arial,sans-serif;--body:'Manrope',Arial,sans-serif}
-body{color:var(--ink);font-family:var(--body)}
-.top-note{background:#f26722;color:#082b57}
-header{background:linear-gradient(180deg,#06264df0,#082b57b8);border-bottom-color:#ffffff35}
-.brand{display:flex;align-items:center;transform:none;text-shadow:none;color:inherit;font-size:0;line-height:0}
-.brand img{display:block;width:132px;height:auto;max-height:66px;object-fit:contain;transform:none}
-nav{font-family:var(--body);font-weight:700;letter-spacing:.04em}
-nav a:hover{color:#ff9a56}
-.cart-open,.button{background:#f26722;color:#082b57;box-shadow:3px 3px 0 #ffffff}
-.cart-open:hover,.button:hover{box-shadow:1px 1px 0 #ffffff}
-.cart-open b{background:#082b57;color:#fff}
-.hero{background:#082b57}
-.hero:after{background:linear-gradient(90deg,#061e42f5 0%,#082b57dc 30%,#082b5790 48%,#082b5720 72%,transparent 100%),linear-gradient(0deg,#061e42a8,transparent 42%)}
-.kicker{color:#ff9a56}
-.kicker:before{background:#f26722;box-shadow:5px 4px 0 #fff}
-.hero h1{font-family:var(--display);font-weight:600;line-height:.91;letter-spacing:-.045em;text-shadow:0 3px 16px #001a3a80}
-.hero h1 span{color:#ff9a56;text-shadow:none}
-.hero-copy{font-family:var(--body);font-weight:500;line-height:1.48}
-.text-link{font-family:var(--body);font-weight:700;letter-spacing:.06em}
-.hero-seal{background:#f26722;color:#082b57;transform:none;box-shadow:5px 5px 0 #fff;outline-color:#fff9}
-.hero-seal strong{font-family:var(--display);font-weight:800}
-.ticker{background:#082b57;color:#fff;border-block:4px solid #f26722}
-.ticker-track{font:700 24px var(--display);letter-spacing:.015em}
-.ticker i{color:#ff9a56}
-.full-scene{background:#082b57}
-.full-scene:after{background:linear-gradient(270deg,#06264de8 0%,#082b57b8 29%,#082b5728 61%,transparent 100%),linear-gradient(0deg,#061e4270,transparent 46%)}
-#a-cara-do-verao .scene-copy{display:flex;justify-content:flex-end}
-#a-cara-do-verao .scene-copy>div{max-width:470px}
-#a-cara-do-verao .scene-copy .kicker{justify-content:flex-start}
-#a-cara-do-verao .scene-copy h2{text-align:left}
-#a-cara-do-verao .scene-copy p{margin-left:0}
-#a-cara-do-verao .full-scene img{object-position:center center}
-.scene-copy.right{justify-content:flex-start}
-.scene-copy.right .kicker{justify-content:flex-start}
-.scene-copy.right h2{text-align:left}
-.scene-copy.right p{margin-left:0}
-.scene-copy.right .button{margin-left:0}
-.full-scene:not(#a-cara-do-verao):after{background:linear-gradient(90deg,#06264de8 0%,#082b57b8 30%,#082b5725 63%,transparent 100%),linear-gradient(0deg,#061e4270,transparent 46%)}
-.catalog{background:#f2f5fa}
-.catalog:before{color:#f2672210;transform:none}
-.catalog .kicker{color:#f26722!important}
-.catalog h2{font:600 clamp(48px,6.4vw,76px)/.98 var(--display);letter-spacing:-.045em;text-transform:none;color:#082b57}
-.catalog-head p{font:500 17px/1.55 var(--body);color:#405875}
-.catalog-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.product{min-height:0;padding:18px 18px 20px;background:#fff;border:1px solid #082b5718;border-radius:18px;box-shadow:0 10px 26px #082b570c;transition:transform .2s,box-shadow .2s}
-.product:hover{background:#fff;transform:translateY(-4px);box-shadow:0 16px 34px #082b5719}
-.product-top{left:16px;right:16px;top:15px}
-.product-index{width:32px;height:32px;background:#fff;color:#082b57;border:1px solid #082b5720;font:700 13px var(--body)}
-.product-art{height:auto;aspect-ratio:1/1;margin:0 0 14px;border-radius:13px;background-color:#f5f1e9;background-image:url('assets/product-sheet.webp');background-size:300% 200%;background-repeat:no-repeat;}
-.product-art:before,.product-art:after,.product-art .cup{display:none!important}
-.art-acai{background-position:0 0!important}
-.art-fruit{background-position:50% 0!important}
-.art-salad{background-position:100% 0!important}
-.art-juice{background-position:0 100%!important}
-.art-shake{background-position:50% 100%!important}
-.art-icecream{background-position:100% 100%!important}
-.product h3{font:600 23px/1.2 var(--display);text-transform:none;letter-spacing:-.025em;margin:0 0 6px;color:#082b57}
-.product p{font:400 14px/1.5 var(--body);color:#53657a;min-height:42px}
-.product-bottom{padding-top:15px}
-.product-price{font:700 10px/1.3 var(--body);letter-spacing:.08em;color:#e65b1b}
-.add{border:0;background:#082b57;color:#fff;padding:10px 12px;font:700 11px var(--body);letter-spacing:.025em}
-.add:hover{background:#f26722;color:#082b57}
-.catalog-foot{font:400 12px var(--body);color:#65778d}
-.order-banner{background:#082b57}
-.order-banner:before,.order-banner:after{color:#f26722;opacity:.22}
-.order-banner h2{font:600 clamp(40px,6vw,68px)/1.02 var(--display);letter-spacing:-.04em;text-transform:none}
-.order-banner h2 span{color:#ff9a56}
-.order-banner p{font:400 16px/1.55 var(--body)}
-.order-banner .button{background:#f26722;color:#082b57}
-footer{background:#061e42;color:#eaf1fb;font:500 13px var(--body)}
-footer .brand img{width:110px;height:auto}
-footer strong{display:none}
-.cart-drawer{background:#fffdf8}
-.drawer-head h2{font:600 30px var(--display);text-transform:none;color:#082b57}
-.drawer-head{border-bottom-color:#f26722}
-.cart-row strong{font:600 16px var(--body);color:#082b57}
-.qty button{border-color:#082b57;color:#082b57}
-.cart-help{font:400 13px/1.5 var(--body);color:#53657a}
-.checkout{background:#f26722;color:#082b57}
-@media(max-width:760px){
- header{top:29px}
- .brand img{width:105px;max-height:55px}
- nav{background:#082b57f5}
- .hero:after{background:linear-gradient(90deg,#061e42e8 0%,#082b57b4 46%,#082b5738 82%,#082b571c 100%),linear-gradient(0deg,#061e42bb 0%,transparent 55%)}
- .hero h1{font-size:clamp(54px,13vw,86px);line-height:.96;font-weight:700}
- .hero h1 span{white-space:normal}
- .full-scene img{object-position:60% center}
- #a-cara-do-verao .scene-copy{justify-content:flex-end}
- #a-cara-do-verao .full-scene img{object-position:30% center}
- #a-cara-do-verao:after{background:linear-gradient(270deg,#06264de8 0%,#082b57a8 39%,#082b5733 72%,transparent 100%),linear-gradient(0deg,#061e4280,transparent 52%)}
- .full-scene:not(#a-cara-do-verao):after{background:linear-gradient(90deg,#06264de8 0%,#082b57a8 40%,#082b5733 75%,transparent 100%),linear-gradient(0deg,#061e4280,transparent 52%)}
- .product{min-height:0;padding:14px;border-radius:15px}
- .product-art{aspect-ratio:1/1;margin-bottom:11px}
- .product h3{font-size:22px}
- .product p{font-size:13px;min-height:0}
- .product-price{font-size:9px}
- footer .brand img{width:100px}
-}
-
-
-/* Hero baseado no anexo: azul elétrico, produto em destaque e chamada dinâmica */
-.hero:before{background-image:url('assets/hero-nurt-electric.webp');background-position:center;background-size:cover;animation:heroIn 1.2s ease-out both,heroDrift 16s ease-in-out 1.2s infinite alternate}
-@keyframes heroDrift{from{transform:scale(1)}to{transform:scale(1.035)}}
-.hero:after{background:linear-gradient(90deg,#061e42a6 0%,#082b574d 44%,#082b5718 68%,transparent 100%),linear-gradient(0deg,#061e4260,transparent 36%)}
-.hero h1{max-width:760px;font-size:clamp(62px,8.6vw,120px);line-height:.96;font-weight:600;letter-spacing:-.055em}
-.hero-word{min-width:4ch;transform-origin:left center}
-.hero-word.flavor-in{animation:flavorIn .55s cubic-bezier(.2,.7,.2,1) both}
-@keyframes flavorIn{from{opacity:0;transform:translateY(.24em);filter:blur(7px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
-@media(max-width:760px){
- .hero:before{background-position:70% center}
- .hero:after{background:linear-gradient(90deg,#061e42d9 0%,#082b57a8 52%,#082b573d 100%),linear-gradient(0deg,#061e42bd 0%,transparent 58%)}
- .hero h1{font-size:clamp(56px,13vw,84px);line-height:.98}
-}
-@media(prefers-reduced-motion:reduce){.hero:before{animation:none}.hero-word.flavor-in{animation:none}}
-/* Product shots: real photos of each transparent cup */
-.product-art{height:220px!important;min-height:220px;aspect-ratio:auto!important;display:block!important;flex:0 0 220px;background:#f5f1e9!important;background-image:none!important;overflow:hidden}
-.product-art img{display:block!important;width:100%;height:100%;object-fit:contain;object-position:center}
-.product-art:before,.product-art:after,.product-art .cup{display:none!important}
-.art-acai,.art-fruit,.art-salad,.art-juice,.art-shake,.art-icecream{background-image:none!important}
-@media(max-width:760px){.product-art{height:190px!important;min-height:190px;flex-basis:190px}}
-@media(min-width:761px) and (max-width:1050px){.catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-
-/* Catálogo atualizado a partir do mockup aprovado */
-.catalog{isolation:isolate;background:linear-gradient(118deg,#061b3b 0%,#082b57 54%,#0759a7 100%);padding:74px clamp(22px,5vw,76px) 68px;color:#f6f9ff}
-.catalog:before{content:"";inset:0;top:0;right:0;width:49%;height:100%;z-index:-1;background:linear-gradient(90deg,#082b57 0%,#082b5766 38%,#082b5710 100%),url('assets/product-acai.webp') center right/cover no-repeat;opacity:.68;transform:none}
-.catalog-head{max-width:1440px;align-items:flex-start;margin-bottom:22px;gap:32px}
-.catalog-title .kicker{font-size:12px;font-weight:500;letter-spacing:.19em;color:#ff8a45!important}
-.catalog .kicker:before{width:20px;height:2px;background:#f26722;box-shadow:none}
-.catalog h2{font:300 clamp(48px,6vw,82px)/1.02 var(--body);letter-spacing:-.065em;text-transform:none;color:#f7f9ff;margin:8px 0 0}
-.catalog h2 span{color:#ff792e}
-.catalog-head>p{display:none}
-.catalog-tools{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin-left:auto;padding-top:2px}
-.catalog-search{display:flex;align-items:center;gap:9px;width:min(340px,28vw);height:44px;padding:0 15px;border:1px solid #ffffff70;border-radius:99px;background:#ffffff0c;color:#fff}
-.catalog-search svg{width:18px;height:18px;flex:0 0 auto;opacity:.9}
-.catalog-search input{min-width:0;width:100%;border:0;outline:0;background:transparent;color:#fff;font:400 13px var(--body)}
-.catalog-search input::placeholder{color:#e6efffba}
-.catalog-cart{height:44px;padding:0 17px;border:1px solid #ffffffa8;border-radius:99px;background:#ffffff0c;color:#fff;font:500 13px var(--body);white-space:nowrap}
-.catalog-cart b{display:inline-grid;place-items:center;min-width:21px;height:21px;margin-left:8px;padding:0 5px;border-radius:50%;background:#d9eaff;color:#082b57;font-size:11px}
-.catalog-filters{max-width:1440px;margin:0 auto 20px;display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
-.catalog-filter{display:inline-flex;align-items:center;gap:8px;min-height:37px;padding:0 15px;border:1px solid #ffffff56;border-radius:99px;background:#09244b8c;color:#f1f6ff;font:400 12px var(--body);transition:background .2s,border-color .2s,transform .2s}
-.catalog-filter:hover{transform:translateY(-1px);border-color:#fff}
-.catalog-filter[aria-pressed="true"]{border-color:#ff792e;background:#f26722;color:#fff;box-shadow:0 5px 18px #f2672240}
-.catalog-filter svg{width:16px;height:16px}
-.catalog-grid{max-width:1440px;margin:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;background:none;border:0;position:relative;z-index:1}
-.product{height:176px;min-height:0;padding:11px;display:grid;grid-template-columns:minmax(92px,38%) minmax(0,1fr);grid-template-rows:auto 1fr auto;column-gap:12px;overflow:hidden;border:1px solid #ffffff62;border-radius:15px;background:linear-gradient(120deg,#ffffff22,#ffffff0d);backdrop-filter:blur(8px);color:#fff}
-.product:hover{background:linear-gradient(120deg,#ffffff30,#ffffff14);transform:translateY(-2px)}
-.product-top{display:none}
-.product-art{grid-column:1;grid-row:1/4;width:100%;height:100%!important;min-height:0!important;aspect-ratio:auto!important;flex:auto!important;margin:0;border-radius:10px;background:#ffffff0b!important;overflow:hidden}
-.product-art img{object-fit:cover;object-position:center}
-.product h3{grid-column:2;grid-row:1;margin:3px 0 4px;color:#fff;font:400 clamp(15px,1.15vw,18px)/1.2 var(--body);letter-spacing:-.025em}
-.product p{grid-column:2;grid-row:2;min-height:0;margin:0;color:#e1eaf8;font:300 11px/1.4 var(--body);align-self:start}
-.product-bottom{grid-column:2;grid-row:3;align-self:end;margin:0;padding:7px 0 0;display:flex;flex-direction:column;align-items:stretch;gap:7px}
-.product-price{display:none}
-.add{width:100%;min-height:32px;border:0;border-radius:99px;background:#f26722;color:white;padding:7px 10px;font:500 11px var(--body);letter-spacing:0;text-transform:none}
-.add:hover{background:#ff8a45;color:#fff}
-.catalog-foot{max-width:1440px;margin:13px 0 0;color:#d1dff1;font:300 11px/1.4 var(--body)}
-@media(max-width:900px){
- .catalog{padding:64px 22px 58px}
- .catalog:before{width:55%;opacity:.42}
- .catalog-head{display:flex;align-items:flex-start}
- .catalog-tools{padding-top:0}
- .catalog-search{width:220px}
- .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- .product{height:168px}
-}
-@media(max-width:620px){
- .catalog{padding:53px 16px 48px}
- .catalog:before{width:100%;opacity:.22;background-position:68% center}
- .catalog-head{display:block;margin-bottom:17px}
- .catalog h2{font-size:51px}
- .catalog-tools{margin:16px 0 0;justify-content:flex-start}
- .catalog-search{width:auto;flex:1}
- .catalog-cart{padding:0 12px}
- .catalog-filters{gap:7px;margin-bottom:15px;flex-wrap:nowrap;overflow-x:auto;padding:1px 0 7px;scrollbar-width:none}
- .catalog-filters::-webkit-scrollbar{display:none}
- .catalog-filter{flex:0 0 auto;min-height:34px;padding:0 12px;font-size:11px}
- .catalog-grid{grid-template-columns:1fr;gap:9px}
- .product{height:144px;grid-template-columns:120px minmax(0,1fr);column-gap:12px;padding:9px}
- .product h3{font-size:16px}
- .product p{font-size:11px}
- .product-bottom{padding-top:5px;gap:5px}
- .add{min-height:29px;font-size:11px}
- .catalog-foot{font-size:10px}
-}
+@media(max-width:370px){.product-art{height:150px}.catalog-cart{font-size:0}.catalog-cart b{font-size:12px}.hero h1{font-size:46px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -329,36 +83,38 @@ footer strong{display:none}
 <section class="hero" id="topo">
 <div class="hero-inner">
 <div class="kicker">A temporada pede Nurt</div>
-<h1>Verão pede<br><span class="hero-word flavor-in" id="hero-word" aria-live="polite">açaí</span></h1>
+<h1>Verão pede<br><span class="hero-word flavor-in" id="hero-word" aria-live="off">açaí</span></h1>
 <p class="hero-copy">Açaí, sorvete, milkshake e suco bem geladinhos. Escolhe o teu favorito e deixa o dia mais gostoso.</p>
 <div class="hero-actions"><a class="button" href="#sabores">Escolher meu sabor</a><a class="text-link" href="#a-cara-do-verao">Sente o clima</a></div>
 </div>
 <div class="hero-seal"><div><strong>100%</strong>vontade<br>de verão</div></div>
 </section>
 <div class="ticker"><div class="ticker-track"><span>Açaí do teu jeito <i>✳</i></span><span>Sorvete na mão <i>✳</i></span><span>Milkshake gelado <i>✳</i></span><span>Fruta de verdade <i>✳</i></span><span>Açaí do teu jeito <i>✳</i></span><span>Sorvete na mão <i>✳</i></span><span>Milkshake gelado <i>✳</i></span><span>Fruta de verdade <i>✳</i></span></div></div>
-<section class="full-scene" id="a-cara-do-verao">
-<img src="assets/section-milkshake.webp" alt="Pessoa segurando um copo transparente de milkshake de morango no verão">
-<div class="scene-copy">
-<div><div class="kicker">Pausa pra refrescar</div><h2>Um gole e <em>muda o dia.</em></h2><p>Milkshake batido, morango de verdade e aquele primeiro gole que pede mais um.</p><a class="button" href="#sabores">Ver sabores</a></div>
-</div>
-</section>
 <section class="catalog" id="sabores">
 <div class="catalog-head"><div class="catalog-title"><div class="kicker">CARDÁPIO NURT</div><h2>Nossos <span>sabores</span></h2></div><div class="catalog-tools"><label class="catalog-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg><input id="catalog-search" type="search" placeholder="Buscar no cardápio" aria-label="Buscar produtos"></label><button class="catalog-cart" type="button" data-cart>Meu pedido <b id="catalog-cart-count">0</b></button></div></div>
 <div class="catalog-filters" role="group" aria-label="Filtrar produtos">
 <button class="catalog-filter" type="button" data-filter="all" aria-pressed="true">Todos</button><button class="catalog-filter" type="button" data-filter="acai" aria-pressed="false">Açaí</button><button class="catalog-filter" type="button" data-filter="ice" aria-pressed="false">Sorvetes</button><button class="catalog-filter" type="button" data-filter="shake" aria-pressed="false">Milkshakes</button><button class="catalog-filter" type="button" data-filter="juice" aria-pressed="false">Sucos</button><button class="catalog-filter" type="button" data-filter="fruit" aria-pressed="false">Salada de frutas</button>
 </div>
 <div class="catalog-grid">
-<article class="product" data-category="acai"><div class="product-top"><span class="product-index">01</span><i class="product-dot"></i></div><div class="product-art art-acai" role="img" aria-label="Copo transparente com açaí Nurt, banana, morango e granola"><img src="assets/product-acai.webp" alt=""></div><h3>Açaí Nurt</h3><p>Roxo, cremoso e pronto pra receber tua combinação favorita.</p><div class="product-bottom"><span class="product-price">Escolhe tamanho</span><button class="add" data-add="Açaí Nurt">Adicionar +</button></div></article>
-<article class="product" data-category="acai"><div class="product-top"><span class="product-index">02</span><i class="product-dot"></i></div><div class="product-art art-fruit" role="img" aria-label="Copo transparente de açaí com frutas em camadas"><img src="assets/product-acai-fruta.webp" alt=""></div><h3>Açaí com fruta</h3><p>Açaí gelado com banana, morango e crocância por cima.</p><div class="product-bottom"><span class="product-price">Fruta fresquinha</span><button class="add" data-add="Açaí com fruta">Adicionar +</button></div></article>
-<article class="product" data-category="fruit"><div class="product-top"><span class="product-index">03</span><i class="product-dot"></i></div><div class="product-art art-salad" role="img" aria-label="Copo transparente com salada de frutas"><img src="assets/product-salada.webp" alt=""></div><h3>Salada de frutas</h3><p>Colorida, leve e cheia de pedaços de fruta de verdade.</p><div class="product-bottom"><span class="product-price">Feita na hora</span><button class="add" data-add="Salada de frutas">Adicionar +</button></div></article>
-<article class="product" data-category="juice"><div class="product-top"><span class="product-index">04</span><i class="product-dot"></i></div><div class="product-art art-juice" role="img" aria-label="Copo transparente com suco natural de laranja"><img src="assets/product-suco.webp" alt=""></div><h3>Suco natural</h3><p>Fruta batida e geladinha pra acompanhar o dia de sol.</p><div class="product-bottom"><span class="product-price">Escolhe o sabor</span><button class="add" data-add="Suco natural">Adicionar +</button></div></article>
-<article class="product" data-category="shake"><div class="product-top"><span class="product-index">05</span><i class="product-dot"></i></div><div class="product-art art-shake" role="img" aria-label="Copo transparente com milkshake de morango"><img src="assets/product-milkshake.webp" alt=""></div><h3>Milkshake</h3><p>Gelado, cremoso e batido na hora. Qual vai ser o teu?</p><div class="product-bottom"><span class="product-price">Cremosidade total</span><button class="add" data-add="Milkshake">Adicionar +</button></div></article>
-<article class="product" data-category="ice"><div class="product-top"><span class="product-index">06</span><i class="product-dot"></i></div><div class="product-art art-icecream" role="img" aria-label="Copo transparente com sorvete e morangos"><img src="assets/product-sorvete.webp" alt=""></div><h3>Sorvete no copo</h3><p>Uma colherada refrescante pra curtir sem pressa.</p><div class="product-bottom"><span class="product-price">Escolhe o sabor</span><button class="add" data-add="Sorvete no copo">Adicionar +</button></div></article>
+<article class="product" data-category="acai"><div class="product-top"><span class="product-index">01</span><i class="product-dot"></i></div><div class="product-art art-acai" role="img" aria-label="Copo transparente com açaí Nurt, banana, morango e granola"><img loading="lazy" decoding="async" src="assets/product-acai.webp" alt=""></div><h3>Açaí Nurt</h3><p>Roxo, cremoso e pronto pra receber tua combinação favorita.</p><div class="product-bottom"><span class="product-price">Escolhe tamanho</span><button class="add" data-add="Açaí Nurt">Adicionar +</button></div></article>
+<article class="product" data-category="acai"><div class="product-top"><span class="product-index">02</span><i class="product-dot"></i></div><div class="product-art art-fruit" role="img" aria-label="Copo transparente de açaí com frutas em camadas"><img loading="lazy" decoding="async" src="assets/product-acai-fruta.webp" alt=""></div><h3>Açaí com fruta</h3><p>Açaí gelado com banana, morango e crocância por cima.</p><div class="product-bottom"><span class="product-price">Fruta fresquinha</span><button class="add" data-add="Açaí com fruta">Adicionar +</button></div></article>
+<article class="product" data-category="fruit"><div class="product-top"><span class="product-index">03</span><i class="product-dot"></i></div><div class="product-art art-salad" role="img" aria-label="Copo transparente com salada de frutas"><img loading="lazy" decoding="async" src="assets/product-salada.webp" alt=""></div><h3>Salada de frutas</h3><p>Colorida, leve e cheia de pedaços de fruta de verdade.</p><div class="product-bottom"><span class="product-price">Feita na hora</span><button class="add" data-add="Salada de frutas">Adicionar +</button></div></article>
+<article class="product" data-category="juice"><div class="product-top"><span class="product-index">04</span><i class="product-dot"></i></div><div class="product-art art-juice" role="img" aria-label="Copo transparente com suco natural de laranja"><img loading="lazy" decoding="async" src="assets/product-suco.webp" alt=""></div><h3>Suco natural</h3><p>Fruta batida e geladinha pra acompanhar o dia de sol.</p><div class="product-bottom"><span class="product-price">Escolhe o sabor</span><button class="add" data-add="Suco natural">Adicionar +</button></div></article>
+<article class="product" data-category="shake"><div class="product-top"><span class="product-index">05</span><i class="product-dot"></i></div><div class="product-art art-shake" role="img" aria-label="Copo transparente com milkshake de morango"><img loading="lazy" decoding="async" src="assets/product-milkshake.webp" alt=""></div><h3>Milkshake</h3><p>Gelado, cremoso e batido na hora. Qual vai ser o teu?</p><div class="product-bottom"><span class="product-price">Cremosidade total</span><button class="add" data-add="Milkshake">Adicionar +</button></div></article>
+<article class="product" data-category="ice"><div class="product-top"><span class="product-index">06</span><i class="product-dot"></i></div><div class="product-art art-icecream" role="img" aria-label="Copo transparente com sorvete e morangos"><img loading="lazy" decoding="async" src="assets/product-sorvete.webp" alt=""></div><h3>Sorvete no copo</h3><p>Uma colherada refrescante pra curtir sem pressa.</p><div class="product-bottom"><span class="product-price">Escolhe o sabor</span><button class="add" data-add="Sorvete no copo">Adicionar +</button></div></article>
 </div>
+<p class="catalog-empty" hidden role="status">Nenhum sabor encontrado. Tente outro nome ou categoria.</p>
 <p class="catalog-foot">Tamanhos, adicionais e valores aparecem no atendimento antes de confirmar o pedido.</p>
 </section>
+<section class="full-scene" id="a-cara-do-verao">
+<img loading="lazy" decoding="async" src="assets/section-milkshake.webp" alt="Pessoa segurando um copo transparente de milkshake de morango no verão">
+<div class="scene-copy">
+<div><div class="kicker">Pausa pra refrescar</div><h2>Um gole e <em>muda o dia.</em></h2><p>Milkshake batido, morango de verdade e aquele primeiro gole que pede mais um.</p><a class="button" href="#sabores">Ver sabores</a></div>
+</div>
+</section>
+
 <section class="full-scene">
-<img src="assets/section-sorvete.webp" alt="Pessoa sorrindo e segurando um copo de sorvete com morango">
+<img loading="lazy" decoding="async" src="assets/section-sorvete.webp" alt="Pessoa sorrindo e segurando um copo de sorvete com morango">
 <div class="scene-copy right">
 <div><div class="kicker">A colherada do dia</div><h2>Deixa o sol <em>mais doce.</em></h2><p>Sorvete cremoso, fruta gelada e um motivo a mais pra sair de casa.</p><a class="button" href="#sabores">Montar meu copo</a></div>
 </div>
@@ -372,7 +128,7 @@ footer strong{display:none}
 </main>
 <footer><a class="brand" href="#topo" aria-label="Nurt início"><img src="assets/logo-nurt-clean.webp" alt="Nurt"></a><span>Verão bom é verão com Nurt.</span><small>© 2026 Nurt</small></footer>
 <div class="cart-shade" data-close></div>
-<aside class="cart-drawer" aria-label="Seu pedido" aria-modal="true" role="dialog">
+<aside inert class="cart-drawer" aria-label="Seu pedido" aria-modal="true" role="dialog">
 <div class="drawer-head"><h2>Teu pedido</h2><button class="drawer-close" data-close aria-label="Fechar">×</button></div>
 <div class="cart-items" id="cart-items"><p class="cart-help">Ainda não tem nada por aqui. Escolhe um sabor no cardápio pra começar.</p></div>
 <p class="cart-help">O atendimento confirma tamanho, adicionais, valor e entrega antes de fechar.</p>
@@ -380,16 +136,20 @@ footer strong{display:none}
 </aside>
 <script>
 (function(){
-const cart={};
-const drawerOpen=()=>document.body.classList.add('cart-visible');
-const drawerClose=()=>document.body.classList.remove('cart-visible');
+const names=new Set([...document.querySelectorAll('[data-add]')].map(b=>b.dataset.add));
+let cart={};try{const saved=JSON.parse(localStorage.getItem('nurt-cart')||'{}');for(const [name,qty] of Object.entries(saved)){if(names.has(name)&&Number.isInteger(qty)&&qty>0&&qty<=99)cart[name]=qty}}catch{}
+const drawer=document.querySelector('.cart-drawer');let previousFocus;
+
+const drawerOpen=()=>{previousFocus=document.activeElement;drawer.inert=false;document.body.classList.add('cart-visible');drawer.querySelector('.drawer-close').focus()};
+const drawerClose=()=>{document.body.classList.remove('cart-visible');drawer.inert=true;previousFocus?.focus()};
 const count=document.getElementById('cart-count');
 const catalogCount=document.getElementById('catalog-cart-count');
 const items=document.getElementById('cart-items');
 const checkout=document.getElementById('checkout');
 function render(){
+ try{localStorage.setItem('nurt-cart',JSON.stringify(cart))}catch{}
  const total=Object.values(cart).reduce((a,b)=>a+b,0);
- count.textContent=total;
+ count.textContent=total;checkout.setAttribute('aria-disabled',String(total===0));
  if(catalogCount)catalogCount.textContent=total;
  const entries=Object.entries(cart);
  if(!entries.length){items.innerHTML='<p class="cart-help">Ainda não tem nada por aqui. Escolhe um sabor no cardápio pra começar.</p>';checkout.href='https://wa.me/?text=Oi%20Nurt!%20Quero%20montar%20um%20pedido.';return}
@@ -404,11 +164,12 @@ document.querySelectorAll('[data-cart]').forEach(b=>b.addEventListener('click',d
 const productCards=[...document.querySelectorAll('.product[data-category]')];
 let activeCategory='all';
 const search=document.getElementById('catalog-search');
-function filterCatalog(){const term=(search.value||'').trim().toLocaleLowerCase('pt-BR');productCards.forEach(card=>{const matchesCategory=activeCategory==='all'||card.dataset.category===activeCategory;const matchesText=card.textContent.toLocaleLowerCase('pt-BR').includes(term);card.hidden=!(matchesCategory&&matchesText)})}
+function filterCatalog(){const term=(search.value||'').trim().toLocaleLowerCase('pt-BR');productCards.forEach(card=>{const matchesCategory=activeCategory==='all'||card.dataset.category===activeCategory;const matchesText=card.textContent.toLocaleLowerCase('pt-BR').includes(term);card.hidden=!(matchesCategory&&matchesText)});document.querySelector('.catalog-empty').hidden=productCards.some(card=>!card.hidden)}
 document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{activeCategory=button.dataset.filter;document.querySelectorAll('[data-filter]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));filterCatalog()}));
 search.addEventListener('input',filterCatalog);
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',drawerClose));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')drawerClose()});
+document.addEventListener('keydown',e=>{if(!document.body.classList.contains('cart-visible'))return;if(e.key==='Escape')drawerClose();if(e.key==='Tab'){const controls=[...drawer.querySelectorAll('button,a[href]')].filter(el=>el.getAttribute('aria-disabled')!=='true');const first=controls[0],last=controls[controls.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+render();
 const heroWord=document.getElementById('hero-word');
 if(heroWord&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
  const flavors=['açaí','sorvete','milkshake','suco'];let flavorIndex=0;
