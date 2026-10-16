@@ -7,7 +7,7 @@
 <meta name="description" content="Açaí, sorvetes, milkshakes, sucos e salada de frutas para aproveitar o verão do seu jeito.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--purple:#401070;--violet:#6925a3;--pink:#ed2b9e;--yellow:#ffe53d;--sky:#59c9ef;--green:#c8ed46;--cream:#fff8eb;--ink:#281039;--display:'Anton',Impact,sans-serif;--body:'Barlow Condensed',Arial,sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:78px}body{margin:0;color:var(--ink);font-family:var(--body);overflow-x:hidden}button,a{font:inherit}a{color:inherit;text-decoration:none}button{cursor:pointer}
@@ -250,6 +250,69 @@ footer strong{display:none}
 .art-acai,.art-fruit,.art-salad,.art-juice,.art-shake,.art-icecream{background-image:none!important}
 @media(max-width:760px){.product-art{height:190px!important;min-height:190px;flex-basis:190px}}
 @media(min-width:761px) and (max-width:1050px){.catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Catálogo atualizado a partir do mockup aprovado */
+.catalog{isolation:isolate;background:linear-gradient(118deg,#061b3b 0%,#082b57 54%,#0759a7 100%);padding:74px clamp(22px,5vw,76px) 68px;color:#f6f9ff}
+.catalog:before{content:"";inset:0;top:0;right:0;width:49%;height:100%;z-index:-1;background:linear-gradient(90deg,#082b57 0%,#082b5766 38%,#082b5710 100%),url('assets/product-acai.webp') center right/cover no-repeat;opacity:.68;transform:none}
+.catalog-head{max-width:1440px;align-items:flex-start;margin-bottom:22px;gap:32px}
+.catalog-title .kicker{font-size:12px;font-weight:500;letter-spacing:.19em;color:#ff8a45!important}
+.catalog .kicker:before{width:20px;height:2px;background:#f26722;box-shadow:none}
+.catalog h2{font:300 clamp(48px,6vw,82px)/1.02 var(--body);letter-spacing:-.065em;text-transform:none;color:#f7f9ff;margin:8px 0 0}
+.catalog h2 span{color:#ff792e}
+.catalog-head>p{display:none}
+.catalog-tools{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin-left:auto;padding-top:2px}
+.catalog-search{display:flex;align-items:center;gap:9px;width:min(340px,28vw);height:44px;padding:0 15px;border:1px solid #ffffff70;border-radius:99px;background:#ffffff0c;color:#fff}
+.catalog-search svg{width:18px;height:18px;flex:0 0 auto;opacity:.9}
+.catalog-search input{min-width:0;width:100%;border:0;outline:0;background:transparent;color:#fff;font:400 13px var(--body)}
+.catalog-search input::placeholder{color:#e6efffba}
+.catalog-cart{height:44px;padding:0 17px;border:1px solid #ffffffa8;border-radius:99px;background:#ffffff0c;color:#fff;font:500 13px var(--body);white-space:nowrap}
+.catalog-cart b{display:inline-grid;place-items:center;min-width:21px;height:21px;margin-left:8px;padding:0 5px;border-radius:50%;background:#d9eaff;color:#082b57;font-size:11px}
+.catalog-filters{max-width:1440px;margin:0 auto 20px;display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
+.catalog-filter{display:inline-flex;align-items:center;gap:8px;min-height:37px;padding:0 15px;border:1px solid #ffffff56;border-radius:99px;background:#09244b8c;color:#f1f6ff;font:400 12px var(--body);transition:background .2s,border-color .2s,transform .2s}
+.catalog-filter:hover{transform:translateY(-1px);border-color:#fff}
+.catalog-filter[aria-pressed="true"]{border-color:#ff792e;background:#f26722;color:#fff;box-shadow:0 5px 18px #f2672240}
+.catalog-filter svg{width:16px;height:16px}
+.catalog-grid{max-width:1440px;margin:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;background:none;border:0;position:relative;z-index:1}
+.product{height:176px;min-height:0;padding:11px;display:grid;grid-template-columns:minmax(92px,38%) minmax(0,1fr);grid-template-rows:auto 1fr auto;column-gap:12px;overflow:hidden;border:1px solid #ffffff62;border-radius:15px;background:linear-gradient(120deg,#ffffff22,#ffffff0d);backdrop-filter:blur(8px);color:#fff}
+.product:hover{background:linear-gradient(120deg,#ffffff30,#ffffff14);transform:translateY(-2px)}
+.product-top{display:none}
+.product-art{grid-column:1;grid-row:1/4;width:100%;height:100%!important;min-height:0!important;aspect-ratio:auto!important;flex:auto!important;margin:0;border-radius:10px;background:#ffffff0b!important;overflow:hidden}
+.product-art img{object-fit:cover;object-position:center}
+.product h3{grid-column:2;grid-row:1;margin:3px 0 4px;color:#fff;font:400 clamp(15px,1.15vw,18px)/1.2 var(--body);letter-spacing:-.025em}
+.product p{grid-column:2;grid-row:2;min-height:0;margin:0;color:#e1eaf8;font:300 11px/1.4 var(--body);align-self:start}
+.product-bottom{grid-column:2;grid-row:3;align-self:end;margin:0;padding:7px 0 0;display:flex;flex-direction:column;align-items:stretch;gap:7px}
+.product-price{display:none}
+.add{width:100%;min-height:32px;border:0;border-radius:99px;background:#f26722;color:white;padding:7px 10px;font:500 11px var(--body);letter-spacing:0;text-transform:none}
+.add:hover{background:#ff8a45;color:#fff}
+.catalog-foot{max-width:1440px;margin:13px 0 0;color:#d1dff1;font:300 11px/1.4 var(--body)}
+@media(max-width:900px){
+ .catalog{padding:64px 22px 58px}
+ .catalog:before{width:55%;opacity:.42}
+ .catalog-head{display:flex;align-items:flex-start}
+ .catalog-tools{padding-top:0}
+ .catalog-search{width:220px}
+ .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .product{height:168px}
+}
+@media(max-width:620px){
+ .catalog{padding:53px 16px 48px}
+ .catalog:before{width:100%;opacity:.22;background-position:68% center}
+ .catalog-head{display:block;margin-bottom:17px}
+ .catalog h2{font-size:51px}
+ .catalog-tools{margin:16px 0 0;justify-content:flex-start}
+ .catalog-search{width:auto;flex:1}
+ .catalog-cart{padding:0 12px}
+ .catalog-filters{gap:7px;margin-bottom:15px;flex-wrap:nowrap;overflow-x:auto;padding:1px 0 7px;scrollbar-width:none}
+ .catalog-filters::-webkit-scrollbar{display:none}
+ .catalog-filter{flex:0 0 auto;min-height:34px;padding:0 12px;font-size:11px}
+ .catalog-grid{grid-template-columns:1fr;gap:9px}
+ .product{height:144px;grid-template-columns:120px minmax(0,1fr);column-gap:12px;padding:9px}
+ .product h3{font-size:16px}
+ .product p{font-size:11px}
+ .product-bottom{padding-top:5px;gap:5px}
+ .add{min-height:29px;font-size:11px}
+ .catalog-foot{font-size:10px}
+}
 </style>
 </head>
 <body>
@@ -280,14 +343,17 @@ footer strong{display:none}
 </div>
 </section>
 <section class="catalog" id="sabores">
-<div class="catalog-head"><div><div class="kicker" style="color:var(--pink)">Cardápio Nurt</div><h2>Qual vai ser?</h2></div><p>Combina, mistura, inventa. Escolhe o teu copo e adiciona ao pedido.</p></div>
+<div class="catalog-head"><div class="catalog-title"><div class="kicker">CARDÁPIO NURT</div><h2>Nossos <span>sabores</span></h2></div><div class="catalog-tools"><label class="catalog-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg><input id="catalog-search" type="search" placeholder="Buscar no cardápio" aria-label="Buscar produtos"></label><button class="catalog-cart" type="button" data-cart>Meu pedido <b id="catalog-cart-count">0</b></button></div></div>
+<div class="catalog-filters" role="group" aria-label="Filtrar produtos">
+<button class="catalog-filter" type="button" data-filter="all" aria-pressed="true">Todos</button><button class="catalog-filter" type="button" data-filter="acai" aria-pressed="false">Açaí</button><button class="catalog-filter" type="button" data-filter="ice" aria-pressed="false">Sorvetes</button><button class="catalog-filter" type="button" data-filter="shake" aria-pressed="false">Milkshakes</button><button class="catalog-filter" type="button" data-filter="juice" aria-pressed="false">Sucos</button><button class="catalog-filter" type="button" data-filter="fruit" aria-pressed="false">Salada de frutas</button>
+</div>
 <div class="catalog-grid">
-<article class="product"><div class="product-top"><span class="product-index">01</span><i class="product-dot"></i></div><div class="product-art art-acai" role="img" aria-label="Copo transparente com açaí Nurt, banana, morango e granola"><img src="assets/product-acai.webp" alt=""></div><h3>Açaí Nurt</h3><p>Roxo, cremoso e pronto pra receber tua combinação favorita.</p><div class="product-bottom"><span class="product-price">Escolhe tamanho</span><button class="add" data-add="Açaí Nurt">Adicionar +</button></div></article>
-<article class="product"><div class="product-top"><span class="product-index">02</span><i class="product-dot"></i></div><div class="product-art art-fruit" role="img" aria-label="Copo transparente de açaí com frutas em camadas"><img src="assets/product-acai-fruta.webp" alt=""></div><h3>Açaí com fruta</h3><p>Açaí gelado com banana, morango e crocância por cima.</p><div class="product-bottom"><span class="product-price">Fruta fresquinha</span><button class="add" data-add="Açaí com fruta">Adicionar +</button></div></article>
-<article class="product"><div class="product-top"><span class="product-index">03</span><i class="product-dot"></i></div><div class="product-art art-salad" role="img" aria-label="Copo transparente com salada de frutas"><img src="assets/product-salada.webp" alt=""></div><h3>Salada de frutas</h3><p>Colorida, leve e cheia de pedaços de fruta de verdade.</p><div class="product-bottom"><span class="product-price">Feita na hora</span><button class="add" data-add="Salada de frutas">Adicionar +</button></div></article>
-<article class="product"><div class="product-top"><span class="product-index">04</span><i class="product-dot"></i></div><div class="product-art art-juice" role="img" aria-label="Copo transparente com suco natural de laranja"><img src="assets/product-suco.webp" alt=""></div><h3>Suco natural</h3><p>Fruta batida e geladinha pra acompanhar o dia de sol.</p><div class="product-bottom"><span class="product-price">Escolhe o sabor</span><button class="add" data-add="Suco natural">Adicionar +</button></div></article>
-<article class="product"><div class="product-top"><span class="product-index">05</span><i class="product-dot"></i></div><div class="product-art art-shake" role="img" aria-label="Copo transparente com milkshake de morango"><img src="assets/product-milkshake.webp" alt=""></div><h3>Milkshake</h3><p>Gelado, cremoso e batido na hora. Qual vai ser o teu?</p><div class="product-bottom"><span class="product-price">Cremosidade total</span><button class="add" data-add="Milkshake">Adicionar +</button></div></article>
-<article class="product"><div class="product-top"><span class="product-index">06</span><i class="product-dot"></i></div><div class="product-art art-icecream" role="img" aria-label="Copo transparente com sorvete e morangos"><img src="assets/product-sorvete.webp" alt=""></div><h3>Sorvete no copo</h3><p>Uma colherada refrescante pra curtir sem pressa.</p><div class="product-bottom"><span class="product-price">Escolhe o sabor</span><button class="add" data-add="Sorvete no copo">Adicionar +</button></div></article>
+<article class="product" data-category="acai"><div class="product-top"><span class="product-index">01</span><i class="product-dot"></i></div><div class="product-art art-acai" role="img" aria-label="Copo transparente com açaí Nurt, banana, morango e granola"><img src="assets/product-acai.webp" alt=""></div><h3>Açaí Nurt</h3><p>Roxo, cremoso e pronto pra receber tua combinação favorita.</p><div class="product-bottom"><span class="product-price">Escolhe tamanho</span><button class="add" data-add="Açaí Nurt">Adicionar +</button></div></article>
+<article class="product" data-category="acai"><div class="product-top"><span class="product-index">02</span><i class="product-dot"></i></div><div class="product-art art-fruit" role="img" aria-label="Copo transparente de açaí com frutas em camadas"><img src="assets/product-acai-fruta.webp" alt=""></div><h3>Açaí com fruta</h3><p>Açaí gelado com banana, morango e crocância por cima.</p><div class="product-bottom"><span class="product-price">Fruta fresquinha</span><button class="add" data-add="Açaí com fruta">Adicionar +</button></div></article>
+<article class="product" data-category="fruit"><div class="product-top"><span class="product-index">03</span><i class="product-dot"></i></div><div class="product-art art-salad" role="img" aria-label="Copo transparente com salada de frutas"><img src="assets/product-salada.webp" alt=""></div><h3>Salada de frutas</h3><p>Colorida, leve e cheia de pedaços de fruta de verdade.</p><div class="product-bottom"><span class="product-price">Feita na hora</span><button class="add" data-add="Salada de frutas">Adicionar +</button></div></article>
+<article class="product" data-category="juice"><div class="product-top"><span class="product-index">04</span><i class="product-dot"></i></div><div class="product-art art-juice" role="img" aria-label="Copo transparente com suco natural de laranja"><img src="assets/product-suco.webp" alt=""></div><h3>Suco natural</h3><p>Fruta batida e geladinha pra acompanhar o dia de sol.</p><div class="product-bottom"><span class="product-price">Escolhe o sabor</span><button class="add" data-add="Suco natural">Adicionar +</button></div></article>
+<article class="product" data-category="shake"><div class="product-top"><span class="product-index">05</span><i class="product-dot"></i></div><div class="product-art art-shake" role="img" aria-label="Copo transparente com milkshake de morango"><img src="assets/product-milkshake.webp" alt=""></div><h3>Milkshake</h3><p>Gelado, cremoso e batido na hora. Qual vai ser o teu?</p><div class="product-bottom"><span class="product-price">Cremosidade total</span><button class="add" data-add="Milkshake">Adicionar +</button></div></article>
+<article class="product" data-category="ice"><div class="product-top"><span class="product-index">06</span><i class="product-dot"></i></div><div class="product-art art-icecream" role="img" aria-label="Copo transparente com sorvete e morangos"><img src="assets/product-sorvete.webp" alt=""></div><h3>Sorvete no copo</h3><p>Uma colherada refrescante pra curtir sem pressa.</p><div class="product-bottom"><span class="product-price">Escolhe o sabor</span><button class="add" data-add="Sorvete no copo">Adicionar +</button></div></article>
 </div>
 <p class="catalog-foot">Tamanhos, adicionais e valores aparecem no atendimento antes de confirmar o pedido.</p>
 </section>
@@ -318,11 +384,13 @@ const cart={};
 const drawerOpen=()=>document.body.classList.add('cart-visible');
 const drawerClose=()=>document.body.classList.remove('cart-visible');
 const count=document.getElementById('cart-count');
+const catalogCount=document.getElementById('catalog-cart-count');
 const items=document.getElementById('cart-items');
 const checkout=document.getElementById('checkout');
 function render(){
  const total=Object.values(cart).reduce((a,b)=>a+b,0);
  count.textContent=total;
+ if(catalogCount)catalogCount.textContent=total;
  const entries=Object.entries(cart);
  if(!entries.length){items.innerHTML='<p class="cart-help">Ainda não tem nada por aqui. Escolhe um sabor no cardápio pra começar.</p>';checkout.href='https://wa.me/?text=Oi%20Nurt!%20Quero%20montar%20um%20pedido.';return}
  items.innerHTML=entries.map(([name,qty])=>'<div class="cart-row"><div><strong>'+name+'</strong><span>'+qty+' unidade'+(qty===1?'':'s')+'</span></div><div class="qty"><button data-less="'+name+'" aria-label="Diminuir '+name+'">−</button><b>'+qty+'</b><button data-more="'+name+'" aria-label="Aumentar '+name+'">+</button></div></div>').join('');
@@ -333,6 +401,12 @@ function render(){
 }
 document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()=>{const n=b.dataset.add;cart[n]=(cart[n]||0)+1;render();drawerOpen()}));
 document.querySelectorAll('[data-cart]').forEach(b=>b.addEventListener('click',drawerOpen));
+const productCards=[...document.querySelectorAll('.product[data-category]')];
+let activeCategory='all';
+const search=document.getElementById('catalog-search');
+function filterCatalog(){const term=(search.value||'').trim().toLocaleLowerCase('pt-BR');productCards.forEach(card=>{const matchesCategory=activeCategory==='all'||card.dataset.category===activeCategory;const matchesText=card.textContent.toLocaleLowerCase('pt-BR').includes(term);card.hidden=!(matchesCategory&&matchesText)})}
+document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{activeCategory=button.dataset.filter;document.querySelectorAll('[data-filter]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));filterCatalog()}));
+search.addEventListener('input',filterCatalog);
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',drawerClose));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')drawerClose()});
 const heroWord=document.getElementById('hero-word');
